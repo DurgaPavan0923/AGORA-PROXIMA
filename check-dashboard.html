@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Diagnostic</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; }
+        h2 { color: #666; margin-top: 0; }
+        button {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #4f46e5; }
+        .result {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #6366f1;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .error { border-left-color: #ef4444; background: #fee; }
+        .success { border-left-color: #10b981; background: #efe; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Dashboard Diagnostic Tool</h1>
+    
+    <div class="section">
+        <h2>Step 1: Check Cookies</h2>
+        <button onclick="checkCookies()">Check Cookies</button>
+        <div id="cookieResult"></div>
+    </div>
+
+    <div class="section">
+        <h2>Step 2: Test Auth API</h2>
+        <button onclick="testAuth()">Test /api/auth/verify</button>
+        <div id="authResult"></div>
+    </div>
+
+    <div class="section">
+        <h2>Step 3: Check Backend Connection</h2>
+        <button onclick="testBackend()">Test Backend</button>
+        <div id="backendResult"></div>
+    </div>
+
+    <div class="section">
+        <h2>Step 4: Manual Login</h2>
+        <input type="text" id="uniqueId" placeholder="ADMIN-AGR-001" style="padding: 8px; width: 200px; margin-right: 10px;">
+        <button onclick="manualLogin()">Login & Get Token</button>
+        <div id="loginResult"></div>
+    </div>
+
+    <script>
+        function display(elementId, content, type = 'info') {
+            const el = document.getElementById(elementId);
+            el.className = `result ${type}`;
+            el.textContent = content;
+        }
+
+        function checkCookies() {
+            const cookies = document.cookie;
+            const result = cookies ? 
+                `Cookies found:\n${cookies}` : 
+                '❌ No cookies found! You need to login first.';
+            
+            const hasToken = cookies.includes('token=');
+            display('cookieResult', result, hasToken ? 'success' : 'error');
+        }
+
+        async function testAuth() {
+            try {
+                display('authResult', 'Testing auth API...');
+                
+                const response = await fetch('/api/auth/verify', {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    display('authResult', 
+                        `✅ Auth successful!\n\nStatus: ${response.status}\n\nUser Data:\n${JSON.stringify(data, null, 2)}`,
+                        'success'
+                    );
+                } else {
+                    display('authResult', 
+                        `❌ Auth failed!\n\nStatus: ${response.status}\n\nError:\n${JSON.stringify(data, null, 2)}`,
+                        'error'
+                    );
+                }
+            } catch (error) {
+                display('authResult', `❌ Request failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testBackend() {
+            try {
+                display('backendResult', 'Checking backend connection...');
+                
+                const response = await fetch('http://localhost:5000/health');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    display('backendResult', 
+                        `✅ Backend is running!\n\nStatus: ${response.status}\n\nResponse:\n${JSON.stringify(data, null, 2)}`,
+                        'success'
+                    );
+                } else {
+                    display('backendResult', 
+                        `⚠️ Backend responded with status ${response.status}`,
+                        'error'
+                    );
+                }
+            } catch (error) {
+                display('backendResult', 
+                    `❌ Cannot connect to backend!\n\nError: ${error.message}\n\nMake sure backend is running on port 5000`,
+                    'error'
+                );
+            }
+        }
+
+        async function manualLogin() {
+            const uniqueId = document.getElementById('uniqueId').value || 'ADMIN-AGR-001';
+            
+            try {
+                display('loginResult', `Step 1: Requesting OTP for ${uniqueId}...`);
+                
+                // Step 1: Request OTP
+                const otpResponse = await fetch('/api/auth/request-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ uniqueId })
+                });
+
+                if (!otpResponse.ok) {
+                    const error = await otpResponse.json();
+                    display('loginResult', `❌ OTP request failed:\n${JSON.stringify(error, null, 2)}`, 'error');
+                    return;
+                }
+
+                const otpData = await otpResponse.json();
+                
+                const otp = prompt(`✅ OTP request sent to ${otpData.phone}\n\nCheck backend console for OTP and enter it here:`);
+                if (!otp) {
+                    display('loginResult', '❌ OTP entry cancelled', 'error');
+                    return;
+                }
+
+                const mpin = prompt('Enter MPIN (default: 1234):') || '1234';
+
+                display('loginResult', 'Step 2: Verifying OTP and MPIN...');
+
+                // Step 2: Verify OTP and MPIN
+                const loginResponse = await fetch('/api/auth/verify-otp-mpin', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ uniqueId, otp, mpin })
+                });
+
+                const loginData = await loginResponse.json();
+
+                if (loginResponse.ok) {
+                    display('loginResult', 
+                        `✅ Login successful!\n\nUser:\n${JSON.stringify(loginData.user, null, 2)}\n\n✅ Cookie set! Now try the dashboard.`,
+                        'success'
+                    );
+                    
+                    setTimeout(() => {
+                        if (confirm('Redirect to dashboard now?')) {
+                            window.location.href = '/dashboard';
+                        }
+                    }, 2000);
+                } else {
+                    display('loginResult', 
+                        `❌ Login failed:\n${JSON.stringify(loginData, null, 2)}`,
+                        'error'
+                    );
+                }
+            } catch (error) {
+                display('loginResult', `❌ Login error: ${error.message}`, 'error');
+            }
+        }
+
+        // Auto-check cookies on load
+        window.onload = () => {
+            checkCookies();
+            console.log('🔍 Dashboard Diagnostic Tool Loaded');
+            console.log('This tool helps debug authentication issues');
+        };
+    </script>
+</body>
+</html>

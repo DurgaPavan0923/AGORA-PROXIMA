@@ -1,0 +1,12 @@
+{
+  "/api/admin/pending-users/route": "app/api/admin/pending-users/route.js",
+  "/api/auth/request-otp/route": "app/api/auth/request-otp/route.js",
+  "/api/auth/verify-otp-mpin/route": "app/api/auth/verify-otp-mpin/route.js",
+  "/api/auth/verify/route": "app/api/auth/verify/route.js",
+  "/api/elections/route": "app/api/elections/route.js",
+  "/auth/page": "app/auth/page.js",
+  "/dashboard/admin/page": "app/dashboard/admin/page.js",
+  "/dashboard/election-commission/page": "app/dashboard/election-commission/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/page": "app/page.js"
+}

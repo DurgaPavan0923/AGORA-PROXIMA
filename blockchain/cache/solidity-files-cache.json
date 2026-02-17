@@ -1,0 +1,77 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\gupta\\OneDrive\\Desktop\\AGORA\\blockchain\\contracts\\SBT.sol": {
+      "lastModificationDate": 1765039958391,
+      "contentHash": "18a8006611bb5f80fa84632c220d5030",
+      "sourceName": "contracts/SBT.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SBT"
+      ]
+    },
+    "C:\\Users\\gupta\\OneDrive\\Desktop\\AGORA\\blockchain\\contracts\\VotingContract.sol": {
+      "lastModificationDate": 1765039912682,
+      "contentHash": "615b7481a99bbf600f60725cd05fbfe4",
+      "sourceName": "contracts/VotingContract.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "VotingContract"
+      ]
+    }
+  }
+}

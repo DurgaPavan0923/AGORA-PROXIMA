@@ -1,0 +1,3 @@
+{
+  "/api/auth/id-proof/route": "app/api/auth/id-proof/route.js"
+}
