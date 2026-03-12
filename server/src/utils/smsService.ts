@@ -9,21 +9,28 @@ interface SMSOptions {
 export const sendSMS = async (options: SMSOptions): Promise<boolean> => {
   try {
     const { phone, message } = options;
+    const smsProvider = process.env.SMS_PROVIDER || 'twilio';
 
-    // Check if SMS service is configured
-    if (!process.env.SMS_API_KEY) {
+    // Check if any SMS credentials are configured
+    const hasCredentials =
+      process.env.SMS_API_KEY ||
+      process.env.FAST2SMS_API_KEY ||
+      process.env.TWILIO_ACCOUNT_SID ||
+      process.env.MSG91_API_KEY ||
+      process.env.TEXTLOCAL_API_KEY;
+
+    if (!hasCredentials) {
       // Development mode - log to console
-      console.log('📱 SMS (Development Mode):');
+      console.log('\u{1F4F1} SMS (Development Mode):');
       console.log('To:', phone);
       console.log('Message:', message);
       console.log('---');
-      return true; // Return success in development mode
+      return true;
     }
 
-    // Production mode - use actual SMS service
-    const smsProvider = process.env.SMS_PROVIDER || 'twilio';
-
     switch (smsProvider) {
+      case 'fast2sms':
+        return await sendViaFast2SMS(phone, message);
       case 'twilio':
         return await sendViaTwilio(phone, message);
       case 'msg91':
@@ -36,6 +43,46 @@ export const sendSMS = async (options: SMSOptions): Promise<boolean> => {
     }
   } catch (error) {
     console.error('SMS sending failed:', error);
+    return false;
+  }
+};
+
+// Fast2SMS Provider (India)
+const sendViaFast2SMS = async (phone: string, message: string): Promise<boolean> => {
+  try {
+    const apiKey = process.env.FAST2SMS_API_KEY;
+    if (!apiKey) {
+      throw new Error('FAST2SMS_API_KEY not configured');
+    }
+
+    // Strip +91 or 91 prefix to get 10-digit number
+    const cleanPhone = phone.replace(/^\+?91/, '');
+
+    const response = await fetch('https://www.fast2sms.com/dev/bulkV2', {
+      method: 'POST',
+      headers: {
+        'authorization': apiKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        route: 'q', // Quick SMS route (transactional)
+        message,
+        language: 'english',
+        flash: 0,
+        numbers: cleanPhone,
+      }),
+    });
+
+    const data = await response.json() as { return?: boolean; message?: string };
+
+    if (!response.ok || data.return === false) {
+      throw new Error(`Fast2SMS error: ${JSON.stringify(data)}`);
+    }
+
+    console.log('SMS sent via Fast2SMS');
+    return true;
+  } catch (error) {
+    console.error('Fast2SMS failed:', error);
     return false;
   }
 };

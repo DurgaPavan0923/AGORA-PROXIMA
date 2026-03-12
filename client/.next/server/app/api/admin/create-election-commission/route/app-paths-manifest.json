@@ -1,0 +1,3 @@
+{
+  "/api/admin/create-election-commission/route": "app/api/admin/create-election-commission/route.js"
+}

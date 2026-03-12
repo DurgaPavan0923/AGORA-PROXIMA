@@ -125,7 +125,7 @@ export const voteOnProposal = async (req: AuthRequest, res: Response): Promise<v
       return;
     }
 
-    // Create vote
+    // Create vote and atomically update proposal count
     const proposalVote = new ProposalVote({
       proposalId: id,
       userId: req.user?.uniqueId,
@@ -135,9 +135,8 @@ export const voteOnProposal = async (req: AuthRequest, res: Response): Promise<v
 
     await proposalVote.save();
 
-    // Update proposal vote counts
-    proposal.votes[vote] += 1;
-    await proposal.save();
+    // Use atomic $inc to prevent race conditions on vote counts
+    await Proposal.findByIdAndUpdate(id, { $inc: { [`votes.${vote}`]: 1 } });
 
     res.json({
       success: true,

@@ -27,7 +27,6 @@ const UserSchema = new Schema<IUser>(
       type: String,
       required: true,
       unique: true,
-      index: true,
     },
     fullName: {
       type: String,
@@ -102,8 +101,6 @@ const UserSchema = new Schema<IUser>(
 );
 
 // Indexes for efficient queries
-UserSchema.index({ phone: 1 });
-UserSchema.index({ uniqueId: 1 });
 UserSchema.index({ isVerified: 1 });
 
 export const User = mongoose.model<IUser>('User', UserSchema);

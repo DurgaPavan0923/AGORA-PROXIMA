@@ -12,8 +12,8 @@ import { ethers } from 'ethers';
  */
 
 export class BlockchainIntegration {
-  private userRegistry: UserRegistryService;
-  private votingService: VotingService;
+  private userRegistry!: UserRegistryService;
+  private votingService!: VotingService;
   private enabled: boolean;
 
   constructor() {

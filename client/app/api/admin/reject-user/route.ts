@@ -5,7 +5,7 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/ap
 export async function POST(request: NextRequest) {
   try {
     const { userId } = await request.json()
-    const token = request.cookies.get("token")?.value
+    const token = request.cookies.get("auth-token")?.value
 
     if (!token) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })

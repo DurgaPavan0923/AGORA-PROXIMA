@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 // Create reusable transporter
 const createTransporter = () => {
   if (process.env.EMAIL_SERVICE === 'gmail') {
-    return nodemailer.createTransporter({
+    return nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
@@ -13,7 +13,7 @@ const createTransporter = () => {
   } else {
     // For development, use Ethereal (fake SMTP)
     // Or configure your own SMTP server
-    return nodemailer.createTransporter({
+    return nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.ethereal.email',
       port: parseInt(process.env.SMTP_PORT || '587'),
       secure: false,
@@ -36,15 +36,24 @@ export const sendEmail = async (options: EmailOptions): Promise<boolean> => {
   try {
     // Check if email service is configured
     if (!process.env.EMAIL_USER && !process.env.SMTP_USER) {
-      console.log('📧 EMAIL (Development Mode):');
+      console.log('\u{1F4E7} EMAIL (Development Mode):');
       console.log('To:', options.to);
       console.log('Subject:', options.subject);
-      console.log('Content:', options.text || options.html);
+      if (options.text) console.log('Preview:', options.text.substring(0, 120) + '...');
       console.log('---');
-      return true; // Return success in development mode
+      return true;
     }
 
     const transporter = createTransporter();
+
+    // Verify SMTP connection on first send
+    try {
+      await transporter.verify();
+    } catch (verifyErr) {
+      console.error('Email SMTP connection failed:', verifyErr);
+      console.error('Check EMAIL_USER / EMAIL_PASSWORD in .env (use Gmail App Password, not regular password)');
+      return false;
+    }
 
     const mailOptions = {
       from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
@@ -55,10 +64,10 @@ export const sendEmail = async (options: EmailOptions): Promise<boolean> => {
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent:', info.messageId);
+    console.log('\u2705 Email sent:', info.messageId, '| To:', options.to);
     return true;
-  } catch (error) {
-    console.error('Email sending failed:', error);
+  } catch (error: any) {
+    console.error('Email sending failed:', error.message || error);
     return false;
   }
 };

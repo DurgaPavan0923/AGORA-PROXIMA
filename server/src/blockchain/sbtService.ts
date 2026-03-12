@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { getAdminSigner, BLOCKCHAIN_CONFIG, createDID } from './web3Config';
+import { getAdminSigner, BLOCKCHAIN_CONFIG } from './web3Config';
 
 // ABI for Soulbound Token (SBT) Contract
 const SBT_ABI = [

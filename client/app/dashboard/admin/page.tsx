@@ -68,7 +68,7 @@ export default function AdminDashboard() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center space-y-4">
-          <div className="w-12 h-12 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <div className="w-12 h-12 border-4 border-[#0C2340] border-t-transparent rounded-full animate-spin mx-auto"></div>
           <p className="text-gray-600">Loading admin dashboard...</p>
         </div>
       </div>
@@ -82,8 +82,8 @@ export default function AdminDashboard() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-purple-100 rounded-lg">
-                <Shield className="w-6 h-6 text-purple-600" />
+              <div className="p-2 bg-[#0C2340] rounded-lg">
+                <Shield className="w-6 h-6 text-[#FF9933]" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>

@@ -53,7 +53,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$ne
 const BACKEND_URL = ("TURBOPACK compile-time value", "http://localhost:5000/api") || "http://localhost:5000/api";
 async function GET(request) {
     try {
-        const token = request.cookies.get("token")?.value;
+        const token = request.cookies.get("auth-token")?.value;
         if (!token) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 error: "Unauthorized"

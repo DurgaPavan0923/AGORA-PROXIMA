@@ -58,13 +58,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$ne
 const API_URL = ("TURBOPACK compile-time value", "http://localhost:5000/api") || 'http://localhost:5000/api';
 async function GET(request, { params }) {
     try {
-        const response = await fetch(`${API_URL}/elections/${params.id}`, {
+        const { id } = await params;
+        const response = await fetch(`${API_URL}/elections/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 Cookie: request.headers.get('cookie') || ''
-            },
-            credentials: 'include'
+            }
         });
         const data = await response.json();
         return __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(data, {
@@ -81,18 +81,15 @@ async function GET(request, { params }) {
 }
 async function PUT(request, { params }) {
     try {
+        const { id } = await params;
         const body = await request.json();
         const cookies = request.headers.get('cookie') || '';
-        console.log('PUT /api/elections/[id] - ID:', params.id);
-        console.log('PUT /api/elections/[id] - Body:', body);
-        console.log('PUT /api/elections/[id] - Cookies present:', !!cookies);
-        const response = await fetch(`${API_URL}/elections/${params.id}`, {
+        const response = await fetch(`${API_URL}/elections/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Cookie': cookies
             },
-            credentials: 'include',
             body: JSON.stringify(body)
         });
         const data = await response.json();
@@ -113,16 +110,14 @@ async function PUT(request, { params }) {
 }
 async function DELETE(request, { params }) {
     try {
+        const { id } = await params;
         const cookies = request.headers.get('cookie') || '';
-        console.log('DELETE /api/elections/[id] - ID:', params.id);
-        console.log('DELETE /api/elections/[id] - Cookies present:', !!cookies);
-        const response = await fetch(`${API_URL}/elections/${params.id}`, {
+        const response = await fetch(`${API_URL}/elections/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 'Cookie': cookies
-            },
-            credentials: 'include'
+            }
         });
         const data = await response.json();
         console.log('DELETE /api/elections/[id] - Response:', response.status, data);

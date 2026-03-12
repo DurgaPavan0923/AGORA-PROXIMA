@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { getProvider, getSigner } from './web3Config';
+import { getAdminSigner } from './web3Config';
 
 const USER_REGISTRY_ABI = [
   "function registerUser(address _userAddress, string memory _uniqueIdProof, string memory _name, string memory _email, string memory _phoneNumber, string memory _did, uint256 _sbtTokenId) public returns (bool)",
@@ -29,7 +29,7 @@ export class UserRegistryService {
       throw new Error('USER_REGISTRY_CONTRACT_ADDRESS not set in environment variables');
     }
 
-    this.signer = getSigner();
+    this.signer = getAdminSigner();
     this.contract = new ethers.Contract(contractAddress, USER_REGISTRY_ABI, this.signer);
   }
 
@@ -206,7 +206,7 @@ export class UserRegistryService {
   async getUserCount(): Promise<number> {
     try {
       const count = await this.contract.getUserCount();
-      return count.toNumber();
+      return Number(count);
     } catch (error: any) {
       console.error('Error getting user count:', error);
       return 0;

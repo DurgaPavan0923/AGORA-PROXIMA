@@ -6,7 +6,7 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/ap
 export async function GET(request: NextRequest) {
   try {
     const token = request.headers.get("authorization")?.replace("Bearer ", "") ||
-                  request.cookies.get("token")?.value
+                  request.cookies.get("auth-token")?.value
 
     if (!token) {
       return NextResponse.json({ error: "No token provided" }, { status: 401 })

@@ -29,12 +29,13 @@ export async function POST(request: NextRequest) {
     const nextResponse = NextResponse.json({
       success: true,
       message: "Login successful",
+      token: data.token,
       user: data.user,
       role: data.user?.role,
     })
 
     if (data.token) {
-      nextResponse.cookies.set("token", data.token, {
+      nextResponse.cookies.set("auth-token", data.token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",

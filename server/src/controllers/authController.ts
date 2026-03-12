@@ -1,10 +1,17 @@
 import { Request, Response } from 'express';
+import crypto from 'crypto';
 import { User } from '../models/User';
 import { PendingUser } from '../models/PendingUser';
 import { OTP } from '../models/OTP';
-import { generateOTP, hashMPIN, compareMPIN, generateUniqueId } from '../utils/crypto';
+import { generateOTP, compareMPIN } from '../utils/crypto';
 import { generateToken } from '../utils/jwt';
 import { AuthRequest } from '../middleware/auth';
+
+/** Timing-safe string comparison to prevent timing attacks on OTP verification */
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  return crypto.timingSafeEqual(Buffer.from(a), Buffer.from(b));
+}
 
 // Request OTP for login
 export const requestOTP = async (req: Request, res: Response): Promise<void> => {
@@ -51,12 +58,12 @@ export const requestOTP = async (req: Request, res: Response): Promise<void> => 
     );
 
     // Send OTP via SMS
-    const { sendOTPSMS } = await import('../utils/smsService');
+    const { sendOTPSMS } = await import('../utils/smsService.js');
     await sendOTPSMS(userPhone, otp);
     
     // Also send OTP via email if user has email
     if (user.email) {
-      const { sendEmail } = await import('../utils/emailService');
+      const { sendEmail } = await import('../utils/emailService.js');
       await sendEmail({
         to: user.email,
         subject: 'Your AGORA Login OTP',
@@ -76,7 +83,9 @@ export const requestOTP = async (req: Request, res: Response): Promise<void> => 
       });
     }
 
-    console.log(`OTP sent to ${user.fullName} (${userPhone}): ${otp}`);
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`[DEV] OTP for ${userPhone}: ${otp}`);
+    }
 
     res.json({ success: true, message: 'OTP sent successfully to your phone and email', phone: userPhone });
   } catch (error) {
@@ -132,7 +141,7 @@ export const verifyOTPAndMPIN = async (req: Request, res: Response): Promise<voi
       return;
     }
 
-    if (otpRecord.otp !== otp) {
+    if (!timingSafeEqual(otpRecord.otp, otp)) {
       otpRecord.attempts += 1;
       otpRecord.lastAttempt = new Date();
       await otpRecord.save();

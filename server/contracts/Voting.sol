@@ -6,6 +6,10 @@ pragma solidity ^0.8.20;
  * @dev Transparent, tamper-proof voting system for elections
  * Integrates with Soulbound Tokens to ensure one vote per verified citizen
  */
+interface ISBT {
+    function balanceOf(address owner) external view returns (uint256);
+}
+
 contract Voting {
     // Election structure
     struct Election {
@@ -114,8 +118,10 @@ contract Voting {
         require(!hasVoted[electionId][voterAddress], "Already voted in this election");
         require(partyIndex < elections[electionId].partyNames.length, "Invalid party index");
         
-        // In production, verify SBT ownership here
-        // require(hasSBT(voterAddress), "Voter must have a Soulbound Token");
+        // Verify voter holds a Soulbound Token
+        if (sbtContract != address(0)) {
+            require(ISBT(sbtContract).balanceOf(voterAddress) > 0, "Voter must have a Soulbound Token");
+        }
         
         hasVoted[electionId][voterAddress] = true;
         voterChoice[electionId][voterAddress] = partyIndex;

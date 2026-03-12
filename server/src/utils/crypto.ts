@@ -14,9 +14,9 @@ export const generateUniqueId = (role?: string): string => {
   const timestamp = Date.now().toString(36);
   const randomStr = Math.random().toString(36).substring(2, 15);
   
-  // Special unique ID for election commission (only one exists)
+  // Election commission users get EC prefix with unique suffix
   if (role === 'election_commission') {
-    return 'EC-AGR-001';
+    return `EC-AGR-${timestamp}-${randomStr}`.toUpperCase();
   }
   
   // Admin users get ADMIN prefix

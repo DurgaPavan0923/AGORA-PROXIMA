@@ -1,5 +1,6 @@
 // API Client for Agora Backend
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+// Use relative path so all requests go through the Next.js proxy (next.config.mjs rewrites)
+const API_URL = '/api'
 
 interface RequestOptions extends RequestInit {
   data?: any
@@ -85,14 +86,14 @@ class APIClient {
 
   // Auth endpoints
   auth = {
-    requestOTP: (phoneNumber: string) =>
+    requestOTP: (phone: string) =>
       this.request('/auth/request-otp', {
-        data: { phoneNumber },
+        data: { phone },
       }),
 
-    verifyOTPAndMPIN: (phoneNumber: string, otp: string, mpin: string) =>
+    verifyOTPAndMPIN: (phone: string, otp: string, mpin: string) =>
       this.request('/auth/verify-otp-mpin', {
-        data: { phoneNumber, otp, mpin },
+        data: { phone, otp, mpin },
       }),
 
     register: async (userData: FormData) => {
@@ -228,9 +229,9 @@ class APIClient {
         data: proposalData,
       }),
 
-    vote: (id: string, voteType: 'for' | 'against') =>
+    vote: (id: string, vote: 'yes' | 'no' | 'abstain') =>
       this.request(`/proposals/${id}/vote`, {
-        data: { voteType },
+        data: { vote },
       }),
 
     getResults: (id: string) => this.request(`/proposals/${id}/results`),
@@ -239,24 +240,16 @@ class APIClient {
 
 export const api = new APIClient(API_URL)
 
-// Type definitions for API responses
-export interface User {
-  _id: string
+// Re-export shared types
+export type { User, Election as SharedElection, Party as SharedParty, Vote as SharedVote } from './types'
+
+// Election interface matching backend (MongoDB) shape
+export interface ElectionParty {
+  id: string
   name: string
-  phoneNumber: string
-  email?: string
-  age: number
-  address: string
-  aadhaarNumber: string
-  voterIdNumber: string
-  uniqueVoterId?: string
-  role: 'voter' | 'admin' | 'electionCommission'
-  isVerified: boolean
-  hasMpin: boolean
-  aadhaarCardUrl?: string
-  voterIdCardUrl?: string
-  createdAt: string
-  updatedAt: string
+  symbol: string
+  manifesto?: string
+  boucherUrl?: string
 }
 
 export interface Election {
@@ -266,20 +259,13 @@ export interface Election {
   type: 'national' | 'state' | 'local'
   startDate: string
   endDate: string
-  status: 'upcoming' | 'active' | 'completed'
-  parties: Party[]
-  totalVotes: number
-  results?: ElectionResult[]
+  status: 'draft' | 'upcoming' | 'active' | 'completed' | 'cancelled'
+  parties: ElectionParty[]
+  totalVotes?: number
+  voteCounts?: Record<string, number>
   createdBy: string
   createdAt: string
   updatedAt: string
-}
-
-export interface Party {
-  name: string
-  symbol: string
-  manifesto: string
-  votes?: number
 }
 
 export interface ElectionResult {
@@ -300,11 +286,4 @@ export interface Proposal {
   deadline: string
   createdAt: string
   updatedAt: string
-}
-
-export interface VotingHistory {
-  electionId: string
-  electionTitle: string
-  votedAt: string
-  transactionHash?: string
 }

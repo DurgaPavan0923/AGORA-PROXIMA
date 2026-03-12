@@ -15,6 +15,6 @@ router.post('/request-otp', requestOTP);
 router.post('/verify-otp-mpin', verifyOTPAndMPIN);
 router.post('/register', registrationUpload, register);
 router.get('/verify', authenticate, verifyAuth);
-router.post('/id-proof', issueIdProof);
+router.post('/id-proof', authenticate, issueIdProof);
 
 export default router;

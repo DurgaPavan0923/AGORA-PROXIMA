@@ -1,0 +1,3 @@
+{
+  "/api/user/voting-history/route": "app/api/user/voting-history/route.js"
+}

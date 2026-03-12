@@ -1,18 +1,10 @@
 // Authentication utilities and session management
-import type { Session } from "./types"
+import type { User, Session } from "./types"
 
 export type UserRole = "user" | "admin" | "election_commission"
 
-export interface User {
-  id: string
-  uniqueIdProof: string
-  role: UserRole
-  email: string
-  name: string
-  photoUrl?: string
-  createdAt: Date
-  lastLogin: Date
-}
+// Re-export User from canonical types
+export type { User } from "./types"
 
 // Mock session storage (in production, use database/JWT)
 const sessions = new Map<string, Session>()

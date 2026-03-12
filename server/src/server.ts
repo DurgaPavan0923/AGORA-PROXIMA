@@ -1,8 +1,11 @@
-// Load environment variables FIRST before any other imports
-import dotenv from 'dotenv';
-dotenv.config();
+// ===============================
+// Environment Configuration
+// ===============================
+import 'dotenv/config';
 
-// Now import everything else
+// ===============================
+// Core Imports
+// ===============================
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -11,27 +14,35 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import path from 'path';
+
+// ===============================
+// Internal Imports
+// ===============================
 import { connectDatabase } from './config/database';
 import { authenticate, requireRole } from './middleware/auth';
 
-// Import routes
 import authRoutes from './routes/auth';
 import adminRoutes from './routes/admin';
 import electionRoutes from './routes/elections';
 import proposalRoutes from './routes/proposals';
 import userRoutes from './routes/user';
 
-// Create Express app
+// ===============================
+// App Initialization
+// ===============================
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Connect to database
+// ===============================
+// Database Connection
+// ===============================
 connectDatabase();
 
-// Security middleware
+// ===============================
+// Security Middleware
+// ===============================
 app.use(helmet());
 
-// CORS configuration
 app.use(
   cors({
     origin: process.env.CLIENT_URL || 'http://localhost:3000',
@@ -39,49 +50,76 @@ app.use(
   })
 );
 
-// Rate limiting
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
-  message: 'Too many requests from this IP, please try again later.',
-});
-app.use('/api', limiter);
+// Rate Limiter
+app.use(
+  '/api',
+  rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 100,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+      error: 'Too many requests. Please try again later.',
+    },
+  })
+);
 
-// Body parser middleware
+// ===============================
+// Body Parsing
+// ===============================
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 
-// Compression middleware
+// ===============================
+// Performance Middleware
+// ===============================
 app.use(compression());
 
-// Logging middleware
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-} else {
-  app.use(morgan('combined'));
-}
+// Logging
+app.use(
+  morgan(process.env.NODE_ENV === 'development' ? 'dev' : 'combined')
+);
 
-// Serve uploaded files (already protected - only admins can access via admin panel)
-// Note: The admin panel itself requires authentication, so these files are indirectly protected
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+// ===============================
+// Secure File Access (Protected)
+// ===============================
+// Prevent public access to uploads
+app.get(
+  '/uploads/:filename',
+  authenticate,
+  requireRole('admin'),
+  (req: Request, res: Response) => {
+    const filePath = path.join(__dirname, '../uploads', req.params.filename);
+    res.sendFile(filePath);
+  }
+);
 
+// ===============================
 // API Routes
+// ===============================
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/elections', electionRoutes);
 app.use('/api/proposals', proposalRoutes);
 app.use('/api/user', userRoutes);
 
-// Health check endpoint
-app.get('/health', (req: Request, res: Response) => {
-  res.json({ status: 'ok', message: 'Agora Backend API is running' });
+// ===============================
+// Health Check
+// ===============================
+app.get('/health', (_req: Request, res: Response) => {
+  res.status(200).json({
+    status: 'ok',
+    service: 'Agora Backend API',
+  });
 });
 
-// Root endpoint
-app.get('/', (req: Request, res: Response) => {
-  res.json({
-    message: 'Agora Backend API',
+// ===============================
+// Root Endpoint
+// ===============================
+app.get('/', (_req: Request, res: Response) => {
+  res.status(200).json({
+    name: 'Agora Backend API',
     version: '1.0.0',
     endpoints: {
       auth: '/api/auth',
@@ -93,35 +131,48 @@ app.get('/', (req: Request, res: Response) => {
   });
 });
 
-// 404 handler
-app.use((req: Request, res: Response) => {
-  res.status(404).json({ error: 'Route not found' });
-});
-
-// Global error handler
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error('Error:', err);
-  res.status(500).json({
-    error: 'Internal server error',
-    message: process.env.NODE_ENV === 'development' ? err.message : undefined,
+// ===============================
+// 404 Handler
+// ===============================
+app.use((_req: Request, res: Response) => {
+  res.status(404).json({
+    error: 'Route not found',
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📝 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🌐 Client URL: ${process.env.CLIENT_URL || 'http://localhost:3000'}`);
-});
+// ===============================
+// Global Error Handler
+// ===============================
+app.use(
+  (err: Error, _req: Request, res: Response, _next: NextFunction) => {
+    console.error('Server Error:', err);
 
-// Handle unhandled promise rejections
+    res.status(500).json({
+      error: 'Internal server error',
+      ...(process.env.NODE_ENV === 'development' && {
+        message: err.message,
+      }),
+    });
+  }
+);
+
+// ===============================
+// Process-Level Error Handling
+// ===============================
 process.on('unhandledRejection', (err: Error) => {
   console.error('Unhandled Promise Rejection:', err);
   process.exit(1);
 });
 
-// Handle uncaught exceptions
 process.on('uncaughtException', (err: Error) => {
   console.error('Uncaught Exception:', err);
   process.exit(1);
+});
+
+// ===============================
+// Start Server
+// ===============================
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`📝 Environment: ${process.env.NODE_ENV || 'development'}`);
 });

@@ -69,7 +69,7 @@ contract UserRegistry {
         string memory _phoneNumber,
         string memory _did,
         uint256 _sbtTokenId
-    ) public returns (bool) {
+    ) public onlyAdmin returns (bool) {
         require(!userExists[_userAddress], "User already registered");
         require(phoneToAddress[_phoneNumber] == address(0), "Phone number already registered");
 

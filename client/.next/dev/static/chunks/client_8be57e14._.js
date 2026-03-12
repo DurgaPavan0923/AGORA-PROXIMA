@@ -1717,7 +1717,6 @@ __turbopack_context__.s([
     "ElectionCommissionMonitor",
     ()=>ElectionCommissionMonitor
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/client/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$swr$2f$dist$2f$index$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/client/node_modules/swr/dist/index/index.mjs [app-client] (ecmascript) <locals>");
@@ -1754,6 +1753,12 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+function getAuthHeaders() {
+    const token = ("TURBOPACK compile-time truthy", 1) ? localStorage.getItem('token') : "TURBOPACK unreachable";
+    return token ? {
+        'Authorization': `Bearer ${token}`
+    } : {};
+}
 function ElectionCommissionMonitor() {
     _s();
     const [editingTime, setEditingTime] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -1782,11 +1787,11 @@ function ElectionCommissionMonitor() {
                     for (const election of elections){
                         if (election.status === "active" && new Date(election.endDate) < now) {
                             try {
-                                const API_URL = ("TURBOPACK compile-time value", "http://localhost:5000/api") || 'http://localhost:5000/api';
-                                await fetch(`${API_URL}/elections/${election._id}`, {
+                                await fetch(`/api/elections/${election._id}`, {
                                     method: "PUT",
                                     headers: {
-                                        "Content-Type": "application/json"
+                                        "Content-Type": "application/json",
+                                        ...getAuthHeaders()
                                     },
                                     credentials: 'include',
                                     body: JSON.stringify({
@@ -1823,9 +1828,11 @@ function ElectionCommissionMonitor() {
         }
         try {
             console.log("Deleting election with ID:", electionId);
-            const API_URL = ("TURBOPACK compile-time value", "http://localhost:5000/api") || 'http://localhost:5000/api';
-            const response = await fetch(`${API_URL}/elections/${electionId}`, {
+            const response = await fetch(`/api/elections/${electionId}`, {
                 method: "DELETE",
+                headers: {
+                    ...getAuthHeaders()
+                },
                 credentials: 'include'
             });
             if (!response.ok) {
@@ -1850,11 +1857,11 @@ function ElectionCommissionMonitor() {
         }
         try {
             console.log("Updating election status:", electionId, "to", newStatus);
-            const API_URL = ("TURBOPACK compile-time value", "http://localhost:5000/api") || 'http://localhost:5000/api';
-            const response = await fetch(`${API_URL}/elections/${electionId}`, {
+            const response = await fetch(`/api/elections/${electionId}`, {
                 method: "PUT",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    ...getAuthHeaders()
                 },
                 credentials: 'include',
                 body: JSON.stringify({
@@ -1912,11 +1919,11 @@ function ElectionCommissionMonitor() {
             console.log("  - Election ID:", editingTime);
             console.log("  - New start:", start.toISOString());
             console.log("  - New end:", end.toISOString());
-            const API_URL = ("TURBOPACK compile-time value", "http://localhost:5000/api") || 'http://localhost:5000/api';
-            const response = await fetch(`${API_URL}/elections/${editingTime}`, {
+            const response = await fetch(`/api/elections/${editingTime}`, {
                 method: "PUT",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    ...getAuthHeaders()
                 },
                 credentials: 'include',
                 body: JSON.stringify({
@@ -1967,27 +1974,27 @@ function ElectionCommissionMonitor() {
                                             className: "w-5 h-5"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 265,
+                                            lineNumber: 267,
                                             columnNumber: 15
                                         }, this),
                                         "Election Monitoring"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                    lineNumber: 264,
+                                    lineNumber: 266,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
                                     children: "Real-time voting statistics and election progress"
                                 }, void 0, false, {
                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                    lineNumber: 268,
+                                    lineNumber: 270,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                            lineNumber: 263,
+                            lineNumber: 265,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2008,18 +2015,18 @@ function ElectionCommissionMonitor() {
                             children: "Debug Data"
                         }, void 0, false, {
                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                            lineNumber: 270,
+                            lineNumber: 272,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                    lineNumber: 262,
+                    lineNumber: 264,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/client/components/election-commission-monitor.tsx",
-                lineNumber: 261,
+                lineNumber: 263,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2032,26 +2039,26 @@ function ElectionCommissionMonitor() {
                             className: "h-48"
                         }, i, false, {
                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                            lineNumber: 294,
+                            lineNumber: 296,
                             columnNumber: 15
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                    lineNumber: 292,
+                    lineNumber: 294,
                     columnNumber: 11
                 }, this) : elections.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-gray-500 py-8 text-center",
                     children: "No elections yet"
                 }, void 0, false, {
                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                    lineNumber: 298,
+                    lineNumber: 300,
                     columnNumber: 11
                 }, this) : error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-red-500 py-8 text-center",
                     children: "Failed to load elections"
                 }, void 0, false, {
                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                    lineNumber: 300,
+                    lineNumber: 302,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "space-y-6",
@@ -2076,7 +2083,7 @@ function ElectionCommissionMonitor() {
                                                     children: election.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                    lineNumber: 316,
+                                                    lineNumber: 318,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2084,7 +2091,7 @@ function ElectionCommissionMonitor() {
                                                     children: election.description
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                    lineNumber: 317,
+                                                    lineNumber: 319,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2095,7 +2102,7 @@ function ElectionCommissionMonitor() {
                                                             children: election.type.toUpperCase()
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 319,
+                                                            lineNumber: 321,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -2103,19 +2110,19 @@ function ElectionCommissionMonitor() {
                                                             children: election.status.toUpperCase()
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 320,
+                                                            lineNumber: 322,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                    lineNumber: 318,
+                                                    lineNumber: 320,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 315,
+                                            lineNumber: 317,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenu"], {
@@ -2129,17 +2136,17 @@ function ElectionCommissionMonitor() {
                                                             className: "w-4 h-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 330,
+                                                            lineNumber: 332,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                        lineNumber: 329,
+                                                        lineNumber: 331,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                    lineNumber: 328,
+                                                    lineNumber: 330,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -2150,12 +2157,12 @@ function ElectionCommissionMonitor() {
                                                             children: "Actions"
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 334,
+                                                            lineNumber: 336,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuSeparator"], {}, void 0, false, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 335,
+                                                            lineNumber: 337,
                                                             columnNumber: 25
                                                         }, this),
                                                         election.status === "upcoming" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2166,14 +2173,14 @@ function ElectionCommissionMonitor() {
                                                                     className: "w-4 h-4 mr-2"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 342,
+                                                                    lineNumber: 344,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 "Start Election"
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 338,
+                                                            lineNumber: 340,
                                                             columnNumber: 27
                                                         }, this),
                                                         election.status === "active" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2184,14 +2191,14 @@ function ElectionCommissionMonitor() {
                                                                     className: "w-4 h-4 mr-2"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 352,
+                                                                    lineNumber: 354,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 "End Election"
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 348,
+                                                            lineNumber: 350,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2201,19 +2208,19 @@ function ElectionCommissionMonitor() {
                                                                     className: "w-4 h-4 mr-2"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 360,
+                                                                    lineNumber: 362,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 "Edit Time"
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 357,
+                                                            lineNumber: 359,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuSeparator"], {}, void 0, false, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 364,
+                                                            lineNumber: 366,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -2224,32 +2231,32 @@ function ElectionCommissionMonitor() {
                                                                     className: "w-4 h-4 mr-2"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 370,
+                                                                    lineNumber: 372,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 "Delete Election"
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 366,
+                                                            lineNumber: 368,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                    lineNumber: 333,
+                                                    lineNumber: 335,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 327,
+                                            lineNumber: 329,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                    lineNumber: 314,
+                                    lineNumber: 316,
                                     columnNumber: 19
                                 }, this),
                                 election.status === "completed" && (()=>{
@@ -2274,12 +2281,12 @@ function ElectionCommissionMonitor() {
                                                 children: "No votes were cast in this election"
                                             }, void 0, false, {
                                                 fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                lineNumber: 397,
+                                                lineNumber: 399,
                                                 columnNumber: 27
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 396,
+                                            lineNumber: 398,
                                             columnNumber: 25
                                         }, this);
                                     }
@@ -2295,7 +2302,7 @@ function ElectionCommissionMonitor() {
                                                             className: "w-10 h-10 text-yellow-600 flex-shrink-0"
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 407,
+                                                            lineNumber: 409,
                                                             columnNumber: 29
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2309,7 +2316,7 @@ function ElectionCommissionMonitor() {
                                                                             children: "🎉 Election Winner"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                            lineNumber: 410,
+                                                                            lineNumber: 412,
                                                                             columnNumber: 33
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -2317,13 +2324,13 @@ function ElectionCommissionMonitor() {
                                                                             children: "Winner"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                            lineNumber: 411,
+                                                                            lineNumber: 413,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 409,
+                                                                    lineNumber: 411,
                                                                     columnNumber: 31
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2334,7 +2341,7 @@ function ElectionCommissionMonitor() {
                                                                             children: winner.symbol
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                            lineNumber: 414,
+                                                                            lineNumber: 416,
                                                                             columnNumber: 33
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2344,7 +2351,7 @@ function ElectionCommissionMonitor() {
                                                                                     children: winner.name
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                                    lineNumber: 416,
+                                                                                    lineNumber: 418,
                                                                                     columnNumber: 35
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2358,7 +2365,7 @@ function ElectionCommissionMonitor() {
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                                            lineNumber: 418,
+                                                                                            lineNumber: 420,
                                                                                             columnNumber: 37
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -2370,13 +2377,13 @@ function ElectionCommissionMonitor() {
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                                            lineNumber: 421,
+                                                                                            lineNumber: 423,
                                                                                             columnNumber: 37
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                                    lineNumber: 417,
+                                                                                    lineNumber: 419,
                                                                                     columnNumber: 35
                                                                                 }, this),
                                                                                 winner.manifesto && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2388,36 +2395,36 @@ function ElectionCommissionMonitor() {
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                                    lineNumber: 426,
+                                                                                    lineNumber: 428,
                                                                                     columnNumber: 37
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                            lineNumber: 415,
+                                                                            lineNumber: 417,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 413,
+                                                                    lineNumber: 415,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 408,
+                                                            lineNumber: 410,
                                                             columnNumber: 29
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                    lineNumber: 406,
+                                                    lineNumber: 408,
                                                     columnNumber: 27
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                lineNumber: 405,
+                                                lineNumber: 407,
                                                 columnNumber: 25
                                             }, this),
                                             runnerUp && runnerUpVotes > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2433,7 +2440,7 @@ function ElectionCommissionMonitor() {
                                                                     children: runnerUp.symbol
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 439,
+                                                                    lineNumber: 441,
                                                                     columnNumber: 33
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2443,7 +2450,7 @@ function ElectionCommissionMonitor() {
                                                                             children: "Runner-up"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                            lineNumber: 441,
+                                                                            lineNumber: 443,
                                                                             columnNumber: 35
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2451,19 +2458,19 @@ function ElectionCommissionMonitor() {
                                                                             children: runnerUp.name
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                            lineNumber: 442,
+                                                                            lineNumber: 444,
                                                                             columnNumber: 35
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 440,
+                                                                    lineNumber: 442,
                                                                     columnNumber: 33
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 438,
+                                                            lineNumber: 440,
                                                             columnNumber: 31
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2477,7 +2484,7 @@ function ElectionCommissionMonitor() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 446,
+                                                                    lineNumber: 448,
                                                                     columnNumber: 33
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2488,30 +2495,30 @@ function ElectionCommissionMonitor() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 447,
+                                                                    lineNumber: 449,
                                                                     columnNumber: 33
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 445,
+                                                            lineNumber: 447,
                                                             columnNumber: 31
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                    lineNumber: 437,
+                                                    lineNumber: 439,
                                                     columnNumber: 29
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                lineNumber: 436,
+                                                lineNumber: 438,
                                                 columnNumber: 27
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                        lineNumber: 403,
+                                        lineNumber: 405,
                                         columnNumber: 23
                                     }, this) : null;
                                 })(),
@@ -2528,14 +2535,14 @@ function ElectionCommissionMonitor() {
                                                             className: "w-4 h-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 462,
+                                                            lineNumber: 464,
                                                             columnNumber: 25
                                                         }, this),
                                                         "Total Votes"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                    lineNumber: 461,
+                                                    lineNumber: 463,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2543,13 +2550,13 @@ function ElectionCommissionMonitor() {
                                                     children: election.totalVotes
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                    lineNumber: 465,
+                                                    lineNumber: 467,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 460,
+                                            lineNumber: 462,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2571,20 +2578,20 @@ function ElectionCommissionMonitor() {
                                                                             children: party.symbol
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                            lineNumber: 477,
+                                                                            lineNumber: 479,
                                                                             columnNumber: 33
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                             children: party.name
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                            lineNumber: 478,
+                                                                            lineNumber: 480,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 476,
+                                                                    lineNumber: 478,
                                                                     columnNumber: 31
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2597,13 +2604,13 @@ function ElectionCommissionMonitor() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                                    lineNumber: 480,
+                                                                    lineNumber: 482,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 475,
+                                                            lineNumber: 477,
                                                             columnNumber: 29
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$progress$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Progress"], {
@@ -2611,25 +2618,25 @@ function ElectionCommissionMonitor() {
                                                             className: "h-2"
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                            lineNumber: 484,
+                                                            lineNumber: 486,
                                                             columnNumber: 29
                                                         }, this)
                                                     ]
                                                 }, party.id, true, {
                                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                                    lineNumber: 474,
+                                                    lineNumber: 476,
                                                     columnNumber: 27
                                                 }, this);
                                             })
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 469,
+                                            lineNumber: 471,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                    lineNumber: 459,
+                                    lineNumber: 461,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2639,51 +2646,51 @@ function ElectionCommissionMonitor() {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 493,
+                                            lineNumber: 495,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: new Date(election.startDate).toLocaleDateString()
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 494,
+                                            lineNumber: 496,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "→"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 495,
+                                            lineNumber: 497,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: new Date(election.endDate).toLocaleDateString()
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 496,
+                                            lineNumber: 498,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                    lineNumber: 492,
+                                    lineNumber: 494,
                                     columnNumber: 19
                                 }, this)
                             ]
                         }, election._id || Math.random(), true, {
                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                            lineNumber: 313,
+                            lineNumber: 315,
                             columnNumber: 17
                         }, this);
                     })
                 }, void 0, false, {
                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                    lineNumber: 302,
+                    lineNumber: 304,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/client/components/election-commission-monitor.tsx",
-                lineNumber: 290,
+                lineNumber: 292,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -2697,20 +2704,20 @@ function ElectionCommissionMonitor() {
                                     children: "Edit Election Time"
                                 }, void 0, false, {
                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                    lineNumber: 509,
+                                    lineNumber: 511,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
                                     children: "Update the start and end dates/times for this election"
                                 }, void 0, false, {
                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                    lineNumber: 510,
+                                    lineNumber: 512,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                            lineNumber: 508,
+                            lineNumber: 510,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2724,7 +2731,7 @@ function ElectionCommissionMonitor() {
                                             children: "Start Date & Time"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 516,
+                                            lineNumber: 518,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2734,13 +2741,13 @@ function ElectionCommissionMonitor() {
                                             onChange: (e)=>setNewStartDate(e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 517,
+                                            lineNumber: 519,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                    lineNumber: 515,
+                                    lineNumber: 517,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2751,7 +2758,7 @@ function ElectionCommissionMonitor() {
                                             children: "End Date & Time"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 525,
+                                            lineNumber: 527,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2761,13 +2768,13 @@ function ElectionCommissionMonitor() {
                                             onChange: (e)=>setNewEndDate(e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 526,
+                                            lineNumber: 528,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                    lineNumber: 524,
+                                    lineNumber: 526,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2779,7 +2786,7 @@ function ElectionCommissionMonitor() {
                                             children: "Update Time"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 534,
+                                            lineNumber: 536,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2789,36 +2796,36 @@ function ElectionCommissionMonitor() {
                                             children: "Cancel"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                            lineNumber: 537,
+                                            lineNumber: 539,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                                    lineNumber: 533,
+                                    lineNumber: 535,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/client/components/election-commission-monitor.tsx",
-                            lineNumber: 514,
+                            lineNumber: 516,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/client/components/election-commission-monitor.tsx",
-                    lineNumber: 507,
+                    lineNumber: 509,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/client/components/election-commission-monitor.tsx",
-                lineNumber: 506,
+                lineNumber: 508,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/client/components/election-commission-monitor.tsx",
-        lineNumber: 260,
+        lineNumber: 262,
         columnNumber: 5
     }, this);
 }
@@ -2985,6 +2992,7 @@ __turbopack_context__.s([
     "PartyBoucherManager",
     ()=>PartyBoucherManager
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/client/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$swr$2f$dist$2f$index$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/client/node_modules/swr/dist/index/index.mjs [app-client] (ecmascript) <locals>");
@@ -2994,8 +3002,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/components/ui/card.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/components/ui/table.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/components/ui/dialog.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/components/ui/alert.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/components/ui/badge.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__ = __turbopack_context__.i("[project]/client/node_modules/lucide-react/dist/esm/icons/upload.js [app-client] (ecmascript) <export default as Upload>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__ = __turbopack_context__.i("[project]/client/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript) <export default as FileText>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/client/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-client] (ecmascript) <export default as CheckCircle2>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__ = __turbopack_context__.i("[project]/client/node_modules/lucide-react/dist/esm/icons/circle-alert.js [app-client] (ecmascript) <export default as AlertCircle>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$external$2d$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ExternalLink$3e$__ = __turbopack_context__.i("[project]/client/node_modules/lucide-react/dist/esm/icons/external-link.js [app-client] (ecmascript) <export default as ExternalLink>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XCircle$3e$__ = __turbopack_context__.i("[project]/client/node_modules/lucide-react/dist/esm/icons/circle-x.js [app-client] (ecmascript) <export default as XCircle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$skeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/components/ui/skeleton.tsx [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
@@ -3010,33 +3024,113 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
+;
+const API_URL = ("TURBOPACK compile-time value", "http://localhost:5000/api") || 'http://localhost:5000/api';
+function getAuthHeaders() {
+    const token = ("TURBOPACK compile-time truthy", 1) ? localStorage.getItem('token') : "TURBOPACK unreachable";
+    return token ? {
+        'Authorization': `Bearer ${token}`
+    } : {};
+}
 function PartyBoucherManager() {
     _s();
-    const { data, isLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$swr$2f$dist$2f$index$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"])("/api/elections", {
+    const { data, isLoading, mutate } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$swr$2f$dist$2f$index$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"])("/api/elections", {
         "PartyBoucherManager.useSWR": async (url)=>{
             const response = await fetch(url, {
                 credentials: 'include'
             });
-            if (!response.ok) {
-                throw new Error('Failed to fetch elections');
-            }
+            if (!response.ok) throw new Error('Failed to fetch elections');
             return response.json();
         }
     }["PartyBoucherManager.useSWR"]);
     const elections = data?.elections || [];
-    // Flatten all parties from all elections
+    // Flatten all parties with their parent election ID
     const allParties = elections.flatMap((election)=>election.parties.map((party)=>({
                 ...party,
+                electionId: election._id,
                 electionTitle: election.title
             })));
     const [editingParty, setEditingParty] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [boucherUrl, setBoucherUrl] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const handleUploadBoucher = ()=>{
-        // TODO: Implement API call to upload boucher
-        // For now, just close the dialog
-        alert("Boucher upload feature coming soon!");
+    const [saving, setSaving] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [saveError, setSaveError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [saveSuccess, setSaveSuccess] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const openManage = (party)=>{
+        setEditingParty(party);
+        setBoucherUrl(party.boucherUrl || "");
+        setSaveError("");
+        setSaveSuccess(false);
+    };
+    const closeManage = ()=>{
         setEditingParty(null);
         setBoucherUrl("");
+        setSaveError("");
+        setSaveSuccess(false);
+    };
+    const handleSaveBoucher = async ()=>{
+        if (!editingParty) return;
+        if (!boucherUrl.trim()) {
+            setSaveError("Please enter a valid URL");
+            return;
+        }
+        // Basic URL validation
+        try {
+            new URL(boucherUrl.trim());
+        } catch  {
+            setSaveError("Please enter a valid URL (e.g. https://example.com/boucher.pdf)");
+            return;
+        }
+        setSaving(true);
+        setSaveError("");
+        try {
+            // Get the full election to update the party within it
+            const election = elections.find((e)=>e._id === editingParty.electionId);
+            if (!election) throw new Error("Election not found");
+            // Build updated parties array with the new boucherUrl for this party
+            const updatedParties = election.parties.map((p)=>p.id === editingParty.id ? {
+                    ...p,
+                    boucherUrl: boucherUrl.trim()
+                } : p);
+            const response = await fetch(`${API_URL}/elections/${editingParty.electionId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    ...getAuthHeaders()
+                },
+                credentials: "include",
+                body: JSON.stringify({
+                    parties: updatedParties
+                })
+            });
+            const result = await response.json();
+            if (!response.ok) throw new Error(result.error || "Failed to save boucher");
+            setSaveSuccess(true);
+            // Optimistically update the SWR cache immediately so the table
+            // reflects the change without waiting for a server round-trip
+            await mutate((currentData)=>{
+                if (!currentData?.elections) return currentData;
+                return {
+                    ...currentData,
+                    elections: currentData.elections.map((e)=>e._id === editingParty.electionId ? {
+                            ...e,
+                            parties: e.parties.map((p)=>p.id === editingParty.id ? {
+                                    ...p,
+                                    boucherUrl: boucherUrl.trim()
+                                } : p)
+                        } : e)
+                };
+            }, {
+                revalidate: true
+            } // also re-fetch from server in the background
+            );
+            // Auto-close after 1.5s
+            setTimeout(()=>closeManage(), 1500);
+        } catch (err) {
+            setSaveError(err instanceof Error ? err.message : "Failed to save boucher");
+        } finally{
+            setSaving(false);
+        }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
         children: [
@@ -3049,27 +3143,27 @@ function PartyBoucherManager() {
                                 className: "w-5 h-5"
                             }, void 0, false, {
                                 fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                lineNumber: 64,
+                                lineNumber: 159,
                                 columnNumber: 11
                             }, this),
                             "Party Manifesto & Boucher Management"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/components/party-boucher-manager.tsx",
-                        lineNumber: 63,
+                        lineNumber: 158,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
                         children: "Upload and manage party manifestos and electoral bouchers"
                     }, void 0, false, {
                         fileName: "[project]/client/components/party-boucher-manager.tsx",
-                        lineNumber: 67,
+                        lineNumber: 162,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/components/party-boucher-manager.tsx",
-                lineNumber: 62,
+                lineNumber: 157,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -3083,19 +3177,19 @@ function PartyBoucherManager() {
                             className: "h-16"
                         }, i, false, {
                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                            lineNumber: 73,
+                            lineNumber: 168,
                             columnNumber: 15
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                    lineNumber: 71,
+                    lineNumber: 166,
                     columnNumber: 11
                 }, this) : allParties.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-gray-500 py-8 text-center",
                     children: "No parties found. Create an election first."
                 }, void 0, false, {
                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                    lineNumber: 77,
+                    lineNumber: 172,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "overflow-x-auto",
@@ -3108,57 +3202,57 @@ function PartyBoucherManager() {
                                             children: "Election"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                            lineNumber: 83,
+                                            lineNumber: 178,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                             children: "Party"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                            lineNumber: 84,
+                                            lineNumber: 179,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                             children: "Manifesto"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                            lineNumber: 85,
+                                            lineNumber: 180,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                             children: "Boucher"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                            lineNumber: 86,
+                                            lineNumber: 181,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                             children: "Action"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                            lineNumber: 87,
+                                            lineNumber: 182,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                    lineNumber: 82,
+                                    lineNumber: 177,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                lineNumber: 81,
+                                lineNumber: 176,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
                                 children: allParties.map((party, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableRow"], {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                className: "text-sm text-gray-600",
+                                                className: "text-sm text-gray-600 uppercase",
                                                 children: party.electionTitle
                                             }, void 0, false, {
                                                 fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                lineNumber: 93,
+                                                lineNumber: 188,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -3171,203 +3265,417 @@ function PartyBoucherManager() {
                                                             children: party.symbol
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                            lineNumber: 96,
+                                                            lineNumber: 191,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: party.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                            lineNumber: 97,
+                                                            lineNumber: 192,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                    lineNumber: 95,
+                                                    lineNumber: 190,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                lineNumber: 94,
+                                                lineNumber: 189,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                className: "text-sm max-w-xs truncate",
-                                                children: party.manifesto
-                                            }, void 0, false, {
-                                                fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                lineNumber: 100,
-                                                columnNumber: 21
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                children: party.boucherUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                    href: party.boucherUrl,
-                                                    target: "_blank",
-                                                    rel: "noopener noreferrer",
-                                                    className: "text-blue-600 hover:underline text-sm",
-                                                    children: "View PDF"
+                                                className: "text-sm max-w-xs truncate text-gray-600",
+                                                children: party.manifesto || /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-gray-400 italic",
+                                                    children: "No manifesto"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                    lineNumber: 103,
-                                                    columnNumber: 23
-                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-gray-400 text-sm",
-                                                    children: "Not uploaded"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                    lineNumber: 112,
-                                                    columnNumber: 23
+                                                    lineNumber: 196,
+                                                    columnNumber: 43
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                lineNumber: 101,
-                                                columnNumber: 19
+                                                lineNumber: 195,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                children: party.boucherUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-center gap-2",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                                            className: "bg-green-100 text-green-800 border border-green-200 gap-1",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
+                                                                    className: "w-3 h-3"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                    lineNumber: 202,
+                                                                    columnNumber: 29
+                                                                }, this),
+                                                                "Uploaded"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                            lineNumber: 201,
+                                                            columnNumber: 27
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                            href: party.boucherUrl,
+                                                            target: "_blank",
+                                                            rel: "noopener noreferrer",
+                                                            className: "inline-flex items-center gap-1 text-blue-600 hover:underline text-xs",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$external$2d$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ExternalLink$3e$__["ExternalLink"], {
+                                                                    className: "w-3 h-3"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                    lineNumber: 211,
+                                                                    columnNumber: 29
+                                                                }, this),
+                                                                "View"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                            lineNumber: 205,
+                                                            columnNumber: 27
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                    lineNumber: 200,
+                                                    columnNumber: 25
+                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                                    variant: "outline",
+                                                    className: "text-gray-400 border-gray-200 gap-1",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XCircle$3e$__["XCircle"], {
+                                                            className: "w-3 h-3"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                            lineNumber: 217,
+                                                            columnNumber: 27
+                                                        }, this),
+                                                        "Not uploaded"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                    lineNumber: 216,
+                                                    columnNumber: 25
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                lineNumber: 198,
+                                                columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
-                                                    open: editingParty?.id === party.id,
-                                                    onOpenChange: (open)=>!open && setEditingParty(null),
+                                                    open: editingParty?.id === party.id && editingParty?.electionId === party.electionId,
+                                                    onOpenChange: (open)=>{
+                                                        if (!open) closeManage();
+                                                    },
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTrigger"], {
                                                             asChild: true,
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                                                 size: "sm",
                                                                 variant: "outline",
-                                                                onClick: ()=>setEditingParty(party),
+                                                                onClick: ()=>openManage(party),
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__["Upload"], {
                                                                         className: "w-4 h-4 mr-1"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                                        lineNumber: 122,
-                                                                        columnNumber: 27
+                                                                        lineNumber: 229,
+                                                                        columnNumber: 29
                                                                     }, this),
                                                                     "Manage"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                                lineNumber: 121,
-                                                                columnNumber: 25
+                                                                lineNumber: 228,
+                                                                columnNumber: 27
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                            lineNumber: 120,
-                                                            columnNumber: 23
+                                                            lineNumber: 227,
+                                                            columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogHeader"], {
                                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTitle"], {
+                                                                        className: "flex items-center gap-2",
                                                                         children: [
-                                                                            "Upload Boucher - ",
-                                                                            party.name
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-xl",
+                                                                                children: party.symbol
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                lineNumber: 236,
+                                                                                columnNumber: 31
+                                                                            }, this),
+                                                                            party.name,
+                                                                            " — Boucher"
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                                        lineNumber: 128,
-                                                                        columnNumber: 27
+                                                                        lineNumber: 235,
+                                                                        columnNumber: 29
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                                    lineNumber: 127,
-                                                                    columnNumber: 25
+                                                                    lineNumber: 234,
+                                                                    columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "space-y-4",
+                                                                    className: "space-y-4 pt-2",
                                                                     children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            className: "space-y-2",
+                                                                        saveSuccess && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Alert"], {
+                                                                            className: "border-green-500 bg-green-50",
                                                                             children: [
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                                                    children: "Boucher PDF URL"
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
+                                                                                    className: "h-4 w-4 text-green-600"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                                                    lineNumber: 132,
-                                                                                    columnNumber: 29
+                                                                                    lineNumber: 243,
+                                                                                    columnNumber: 33
                                                                                 }, this),
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                                    placeholder: "https://example.com/boucher.pdf",
-                                                                                    value: boucherUrl || editingParty?.boucherUrl || "",
-                                                                                    onChange: (e)=>setBoucherUrl(e.target.value)
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDescription"], {
+                                                                                    className: "text-green-800",
+                                                                                    children: "Boucher URL saved successfully!"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                                                    lineNumber: 133,
-                                                                                    columnNumber: 29
+                                                                                    lineNumber: 244,
+                                                                                    columnNumber: 33
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                                            lineNumber: 131,
-                                                                            columnNumber: 27
+                                                                            lineNumber: 242,
+                                                                            columnNumber: 31
                                                                         }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                                            onClick: handleUploadBoucher,
-                                                                            className: "w-full",
-                                                                            children: "Save Boucher"
-                                                                        }, void 0, false, {
+                                                                        saveError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Alert"], {
+                                                                            className: "border-red-500 bg-red-50",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__["AlertCircle"], {
+                                                                                    className: "h-4 w-4 text-red-600"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                    lineNumber: 251,
+                                                                                    columnNumber: 33
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDescription"], {
+                                                                                    className: "text-red-800",
+                                                                                    children: saveError
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                    lineNumber: 252,
+                                                                                    columnNumber: 33
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
                                                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                                            lineNumber: 139,
-                                                                            columnNumber: 27
+                                                                            lineNumber: 250,
+                                                                            columnNumber: 31
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "space-y-2",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
+                                                                                    htmlFor: "boucher-url",
+                                                                                    children: "Boucher PDF URL"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                    lineNumber: 256,
+                                                                                    columnNumber: 31
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                                    id: "boucher-url",
+                                                                                    placeholder: "https://example.com/boucher.pdf",
+                                                                                    value: boucherUrl,
+                                                                                    onChange: (e)=>{
+                                                                                        setBoucherUrl(e.target.value);
+                                                                                        setSaveError("");
+                                                                                    }
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                    lineNumber: 257,
+                                                                                    columnNumber: 31
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                    className: "text-xs text-gray-500",
+                                                                                    children: "Enter the public URL of the party's boucher PDF document."
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                    lineNumber: 266,
+                                                                                    columnNumber: 31
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                            lineNumber: 255,
+                                                                            columnNumber: 29
+                                                                        }, this),
+                                                                        party.boucherUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "flex items-center gap-2 p-3 bg-blue-50 border border-blue-200 rounded-lg",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"], {
+                                                                                    className: "w-4 h-4 text-blue-600 shrink-0"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                    lineNumber: 272,
+                                                                                    columnNumber: 33
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                    className: "flex-1 min-w-0",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                            className: "text-xs font-medium text-blue-900",
+                                                                                            children: "Current boucher"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                            lineNumber: 274,
+                                                                                            columnNumber: 35
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                            className: "text-xs text-blue-600 truncate",
+                                                                                            children: party.boucherUrl
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                            lineNumber: 275,
+                                                                                            columnNumber: 35
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                    lineNumber: 273,
+                                                                                    columnNumber: 33
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                                    href: party.boucherUrl,
+                                                                                    target: "_blank",
+                                                                                    rel: "noopener noreferrer",
+                                                                                    className: "shrink-0",
+                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                        size: "sm",
+                                                                                        variant: "outline",
+                                                                                        className: "border-blue-300 hover:bg-blue-100 text-xs",
+                                                                                        children: [
+                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$external$2d$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ExternalLink$3e$__["ExternalLink"], {
+                                                                                                className: "w-3 h-3 mr-1"
+                                                                                            }, void 0, false, {
+                                                                                                fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                                lineNumber: 284,
+                                                                                                columnNumber: 37
+                                                                                            }, this),
+                                                                                            "Open"
+                                                                                        ]
+                                                                                    }, void 0, true, {
+                                                                                        fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                        lineNumber: 283,
+                                                                                        columnNumber: 35
+                                                                                    }, this)
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                    lineNumber: 277,
+                                                                                    columnNumber: 33
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                            lineNumber: 271,
+                                                                            columnNumber: 31
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "flex gap-2",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                    onClick: handleSaveBoucher,
+                                                                                    disabled: saving,
+                                                                                    className: "flex-1 bg-blue-600 hover:bg-blue-700",
+                                                                                    children: saving ? "Saving..." : "Save Boucher"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                    lineNumber: 291,
+                                                                                    columnNumber: 31
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                                                    variant: "outline",
+                                                                                    onClick: closeManage,
+                                                                                    disabled: saving,
+                                                                                    children: "Cancel"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                                    lineNumber: 298,
+                                                                                    columnNumber: 31
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/client/components/party-boucher-manager.tsx",
+                                                                            lineNumber: 290,
+                                                                            columnNumber: 29
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                                    lineNumber: 130,
-                                                                    columnNumber: 25
+                                                                    lineNumber: 240,
+                                                                    columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                            lineNumber: 126,
-                                                            columnNumber: 23
+                                                            lineNumber: 233,
+                                                            columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                    lineNumber: 116,
-                                                    columnNumber: 21
+                                                    lineNumber: 223,
+                                                    columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                                lineNumber: 115,
-                                                columnNumber: 19
+                                                lineNumber: 222,
+                                                columnNumber: 21
                                             }, this)
                                         ]
                                     }, `${party.electionTitle}-${party.id || index}`, true, {
                                         fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                        lineNumber: 92,
+                                        lineNumber: 187,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/client/components/party-boucher-manager.tsx",
-                                lineNumber: 90,
+                                lineNumber: 185,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/components/party-boucher-manager.tsx",
-                        lineNumber: 80,
+                        lineNumber: 175,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/client/components/party-boucher-manager.tsx",
-                    lineNumber: 79,
+                    lineNumber: 174,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/client/components/party-boucher-manager.tsx",
-                lineNumber: 69,
+                lineNumber: 164,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/client/components/party-boucher-manager.tsx",
-        lineNumber: 61,
+        lineNumber: 156,
         columnNumber: 5
     }, this);
 }
-_s(PartyBoucherManager, "eVspJmVsHZWJ39uP/NwZ2bIUXcM=", false, function() {
+_s(PartyBoucherManager, "DXrdECbxECZ9LVTjLsZ2tEGe/YM=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$swr$2f$dist$2f$index$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"]
     ];

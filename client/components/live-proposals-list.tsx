@@ -168,52 +168,18 @@ export function LiveProposalsList() {
                       <CardTitle className="text-lg">{proposal.title}</CardTitle>
                       <CardDescription className="mt-1">{proposal.description}</CardDescription>
                     </div>
-                    <div className="text-right flex-shrink-0">
+                      <div className="text-right flex-shrink-0">
                       <div
                         className={cn("text-2xl font-bold", proposal.daysLeft <= 2 ? "text-red-600" : "text-primary")}
                       >
                         {proposal.daysLeft}d
                       </div>
                       <p className="text-xs text-muted-foreground">left to vote</p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {proposal.votes.yes + proposal.votes.no + proposal.votes.abstain} of {proposal.totalVoters}{" "}
-                        voted
-                      </p>
                     </div>
                   </div>
                 </CardHeader>
 
                 <CardContent className="space-y-6">
-                  {/* Vote Stats */}
-                  <div className="space-y-3">
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium text-accent">Yes</span>
-                        <span className="text-sm text-muted-foreground">
-                          {proposal.votes.yes} votes ({calculatePercentage(proposal.votes.yes, proposal)}%)
-                        </span>
-                      </div>
-                      <Progress value={calculatePercentage(proposal.votes.yes, proposal)} className="h-2" />
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium text-red-500">No</span>
-                        <span className="text-sm text-muted-foreground">
-                          {proposal.votes.no} votes ({calculatePercentage(proposal.votes.no, proposal)}%)
-                        </span>
-                      </div>
-                      <Progress value={calculatePercentage(proposal.votes.no, proposal)} className="h-2" />
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium text-muted-foreground">Abstain</span>
-                        <span className="text-sm text-muted-foreground">
-                          {proposal.votes.abstain} votes ({calculatePercentage(proposal.votes.abstain, proposal)}%)
-                        </span>
-                      </div>
-                      <Progress value={calculatePercentage(proposal.votes.abstain, proposal)} className="h-2" />
-                    </div>
-                  </div>
 
                   {/* Voting Buttons */}
                   <div className="grid grid-cols-3 gap-3 pt-4 border-t border-border">
@@ -279,10 +245,6 @@ export function LiveProposalsList() {
                         <Badge variant="outline" className="mt-2">
                           Closed
                         </Badge>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-bold text-accent">{proposal.votes.yes} Yes</p>
-                        <p className="text-sm font-bold text-red-500">{proposal.votes.no} No</p>
                       </div>
                     </div>
                   </CardHeader>

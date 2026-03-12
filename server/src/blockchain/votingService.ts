@@ -115,7 +115,7 @@ export class VotingService {
 
       // Use voter's private key if provided, otherwise use admin signer
       const signer = voterPrivateKey ? getSigner(voterPrivateKey) : this.signer;
-      const contractWithSigner = this.contract.connect(signer!);
+      const contractWithSigner = this.contract.connect(signer!) as ethers.Contract;
 
       const tx = await contractWithSigner.vote(electionId, partyIndex, voterWalletAddress);
       const receipt = await tx.wait();
@@ -152,7 +152,7 @@ export class VotingService {
     try {
       if (!this.contract) return 0;
       const count = await this.contract.getVoteCount(electionId, partyIndex);
-      return count.toNumber();
+      return Number(count);
     } catch (error) {
       console.error('Error getting vote count:', error);
       return 0;
@@ -166,7 +166,7 @@ export class VotingService {
     try {
       if (!this.contract) return 0;
       const total = await this.contract.getTotalVotes(electionId);
-      return total.toNumber();
+      return Number(total);
     } catch (error) {
       console.error('Error getting total votes:', error);
       return 0;
@@ -180,7 +180,7 @@ export class VotingService {
     try {
       if (!this.contract) return [];
       const results = await this.contract.getElectionResults(electionId);
-      return results.map((r: any) => r.toNumber());
+      return results.map((r: any) => Number(r));
     } catch (error) {
       console.error('Error getting election results:', error);
       return [];

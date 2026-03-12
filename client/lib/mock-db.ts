@@ -156,8 +156,8 @@ export class MockDatabase {
   }
 
   // MPIN Management
+  // WARNING: Mock-only — plaintext storage. Production uses bcrypt via server authController.
   setMPIN(uniqueId: string, mpin: string): void {
-    // In production, encrypt the MPIN
     this.mpinMap.set(uniqueId, mpin)
   }
 

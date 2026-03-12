@@ -3,15 +3,15 @@ import { type NextRequest, NextResponse } from "next/server"
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const response = await fetch(`${API_URL}/elections/${params.id}`, {
+    const { id } = await params
+    const response = await fetch(`${API_URL}/elections/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Cookie: request.headers.get('cookie') || '',
       },
-      credentials: 'include',
     })
 
     const data = await response.json()
@@ -22,22 +22,18 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const { id } = await params
     const body = await request.json()
     const cookies = request.headers.get('cookie') || ''
 
-    console.log('PUT /api/elections/[id] - ID:', params.id)
-    console.log('PUT /api/elections/[id] - Body:', body)
-    console.log('PUT /api/elections/[id] - Cookies present:', !!cookies)
-
-    const response = await fetch(`${API_URL}/elections/${params.id}`, {
+    const response = await fetch(`${API_URL}/elections/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         'Cookie': cookies,
       },
-      credentials: 'include',
       body: JSON.stringify(body),
     })
 
@@ -52,20 +48,17 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const { id } = await params
     const cookies = request.headers.get('cookie') || ''
 
-    console.log('DELETE /api/elections/[id] - ID:', params.id)
-    console.log('DELETE /api/elections/[id] - Cookies present:', !!cookies)
-
-    const response = await fetch(`${API_URL}/elections/${params.id}`, {
+    const response = await fetch(`${API_URL}/elections/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
         'Cookie': cookies,
       },
-      credentials: 'include',
     })
 
     const data = await response.json()

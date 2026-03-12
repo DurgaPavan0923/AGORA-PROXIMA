@@ -9,10 +9,9 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Agora - Citizen Governance Platform",
+  title: "AGORA — Digital Voting Platform | Blockchain-Powered Governance",
   description:
-    "Transparent, secure, and inclusive digital governance powered by blockchain. Participate in local decisions with verified voting.",
-  generator: "v0.app",
+    "India's blockchain-powered digital voting platform. Secure, transparent, and tamper-proof elections with Aadhaar-verified identity.",
   icons: {
     icon: [
       {
@@ -39,10 +38,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* <CHANGE> Voice assistant support */}
-        <script async src="https://cdn.jsdelivr.net/npm/web-speech-api@0.0.1/speech.js"></script>
-      </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <TestDataInitializer />
         <a href="#main-content" className="skip-to-main">

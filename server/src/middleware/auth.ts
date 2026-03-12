@@ -18,8 +18,8 @@ export const authenticate = async (
     // Get token from Authorization header or cookie
     let token = req.headers.authorization?.replace('Bearer ', '');
     
-    if (!token && req.cookies.token) {
-      token = req.cookies.token;
+    if (!token) {
+      token = req.cookies['auth-token'] || req.cookies.token;
     }
 
     if (!token) {

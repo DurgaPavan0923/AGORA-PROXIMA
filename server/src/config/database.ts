@@ -1,22 +1,22 @@
 import mongoose from 'mongoose';
 
-// Fallback MongoDB URI if .env not loaded
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://Agora:Nishant1106@cluster0.2ycxoxb.mongodb.net/agora?retryWrites=true&w=majority';
-
 export const connectDatabase = async (): Promise<void> => {
+  const MONGODB_URI = process.env.MONGODB_URI;
+
   try {
-    console.log('🔍 MongoDB URI:', MONGODB_URI.replace(/:[^:@]+@/, ':****@')); // Hide password in logs
-    
-    // Check if MongoDB URI has placeholder password
-    if (MONGODB_URI.includes('<db_password>')) {
-      console.warn('⚠️  WARNING: MongoDB password not configured!');
-      console.warn('⚠️  Please replace <db_password> in server/.env');
-      console.warn('⚠️  See FIX_MONGODB_NOW.md for instructions');
-      console.warn('⚠️  Server will run in LIMITED MODE without database');
-      return; // Don't crash, just warn
+    if (!MONGODB_URI) {
+      console.error('❌ MONGODB_URI is not set in environment variables');
+      console.warn('⚠️  Server will continue without database (limited functionality)');
+      return;
     }
-    
-    await mongoose.connect(MONGODB_URI);
+
+    console.log('🔄 Connecting to MongoDB...');
+    await mongoose.connect(MONGODB_URI, {
+      serverSelectionTimeoutMS: 15000,
+      connectTimeoutMS: 15000,
+      socketTimeoutMS: 45000,
+      family: 4, // Force IPv4 — fixes DNS resolution on many networks
+    });
     console.log('✅ MongoDB connected successfully');
   } catch (error: any) {
     console.error('❌ MongoDB connection error:', error.message);

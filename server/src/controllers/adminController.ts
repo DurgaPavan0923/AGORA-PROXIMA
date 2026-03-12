@@ -10,7 +10,7 @@ import { sbtService } from '../blockchain/sbtService';
 import { AuthRequest } from '../middleware/auth';
 
 // Get all pending users
-export const getPendingUsers = async (req: AuthRequest, res: Response): Promise<void> => {
+export const getPendingUsers = async (_req: AuthRequest, res: Response): Promise<void> => {
   try {
     const pendingUsers = await PendingUser.find({ status: 'pending' }).sort({ createdAt: -1 });
     res.json({ success: true, pendingUsers });
@@ -97,10 +97,10 @@ export const verifyUser = async (req: AuthRequest, res: Response): Promise<void>
 
     // Send unique ID via SMS
     try {
-      const { sendSMS } = await import('../utils/smsService');
+      const { sendSMS } = await import('../utils/smsService.js');
       await sendSMS({
         phone: user.phone,
-        message: `Hello ${user.fullName}, Welcome to AGORA! Your account is approved. Unique ID: ${uniqueId}, MPIN: ${mpin}. Keep them secure. Login at ${process.env.CLIENT_URL || 'http://localhost:3000'} - AGORA Team`,
+        message: `Hello ${user.fullName}, Welcome to AGORA! Your account is approved. Unique ID: ${uniqueId}. Please login at ${process.env.CLIENT_URL || 'http://localhost:3000'} to get started. - AGORA Team`,
       });
     } catch (error) {
       console.error('Failed to send SMS:', error);
@@ -109,7 +109,7 @@ export const verifyUser = async (req: AuthRequest, res: Response): Promise<void>
     // Send unique ID via email if available
     if (user.email) {
       try {
-        const { sendUniqueIdEmail } = await import('../utils/emailService');
+        const { sendUniqueIdEmail } = await import('../utils/emailService.js');
         await sendUniqueIdEmail(user.email, user.fullName, uniqueId);
       } catch (error) {
         console.error('Failed to send email:', error);
@@ -154,7 +154,7 @@ export const rejectUser = async (req: AuthRequest, res: Response): Promise<void>
 
     // Send rejection notification via SMS
     try {
-      const { sendSMS } = await import('../utils/smsService');
+      const { sendSMS } = await import('../utils/smsService.js');
       await sendSMS({
         phone: pendingUser.phone,
         message: `Hello ${pendingUser.fullName}, Your AGORA registration needs review. Reason: ${reason || 'Document verification failed'}. Please contact support or reapply. - AGORA Team`,
@@ -166,7 +166,7 @@ export const rejectUser = async (req: AuthRequest, res: Response): Promise<void>
     // Send rejection notification via email if available
     if (pendingUser.email) {
       try {
-        const { sendRejectionEmail } = await import('../utils/emailService');
+        const { sendRejectionEmail } = await import('../utils/emailService.js');
         await sendRejectionEmail(pendingUser.email, pendingUser.fullName, reason || 'Document verification failed');
       } catch (error) {
         console.error('Failed to send rejection email:', error);
@@ -232,7 +232,7 @@ export const createElectionCommission = async (req: AuthRequest, res: Response):
 };
 
 // Get admin statistics
-export const getAdminStats = async (req: AuthRequest, res: Response): Promise<void> => {
+export const getAdminStats = async (_req: AuthRequest, res: Response): Promise<void> => {
   try {
     const totalUsers = await User.countDocuments({ isVerified: true });
     const pendingUsers = await PendingUser.countDocuments({ status: 'pending' });

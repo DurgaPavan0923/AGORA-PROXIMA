@@ -28,6 +28,9 @@ const roleRoutes = {
     user: [
         "/dashboard/user"
     ],
+    voter: [
+        "/dashboard/user"
+    ],
     admin: [
         "/dashboard/admin"
     ],
@@ -37,23 +40,45 @@ const roleRoutes = {
 };
 const publicRoutes = [
     "/auth",
-    "/"
+    "/",
+    "/api"
 ];
+/** Decode JWT payload without verification (verification happens server-side) */ function decodeJWTPayload(token) {
+    try {
+        const parts = token.split('.');
+        if (parts.length !== 3) return null;
+        const base64 = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+        return JSON.parse(atob(base64));
+    } catch  {
+        return null;
+    }
+}
 function middleware(request) {
     const { pathname } = request.nextUrl;
     const authToken = request.cookies.get("auth-token")?.value;
-    if (publicRoutes.some((route)=>pathname.startsWith(route))) {
+    // Allow public routes
+    if (publicRoutes.some((route)=>pathname === route || route !== "/" && pathname.startsWith(route))) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].next();
     }
     if (!authToken) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(new URL("/auth", request.url));
     }
-    // For this implementation, we'll check the requested route
-    const requestedDashboard = pathname.split("/")[2] // Extract 'user', 'admin', or 'election-commission'
-    ;
+    // Decode token to extract role
+    const payload = decodeJWTPayload(authToken);
+    if (!payload || !payload.role) {
+        const response = __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(new URL("/auth", request.url));
+        response.cookies.delete("auth-token");
+        return response;
+    }
+    // Enforce role-based access for dashboard routes
     if (pathname.startsWith("/dashboard")) {
-    // In production, verify token and check if user role matches the requested dashboard
-    // For now, we allow access (authentication is enforced)
+        const userRole = payload.role;
+        const allowedPaths = roleRoutes[userRole] || [];
+        const hasAccess = allowedPaths.some((path)=>pathname.startsWith(path));
+        if (!hasAccess) {
+            const correctPath = roleRoutes[userRole]?.[0] || "/auth";
+            return __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].redirect(new URL(correctPath, request.url));
+        }
     }
     return __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].next();
 }

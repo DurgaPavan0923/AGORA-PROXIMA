@@ -16,6 +16,7 @@ export interface IPendingUser extends Document {
   // Document paths
   aadhaarCardPath?: string;
   voterIdCardPath?: string;
+  rejectionReason?: string;
   // Blockchain fields
   blockchainTxHash?: string;
   walletAddress?: string;
@@ -77,6 +78,9 @@ const PendingUserSchema = new Schema<IPendingUser>(
       type: String,
     },
     voterIdCardPath: {
+      type: String,
+    },
+    rejectionReason: {
       type: String,
     },
     // Blockchain fields

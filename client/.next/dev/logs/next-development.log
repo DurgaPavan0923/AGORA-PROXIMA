@@ -1,407 +1,460 @@
-[00:01:02.399] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:01:09.988] Server  LOG      ✓ Ready in 49.2s
-[00:01:13.247] Server  LOG      ○ Compiling / ...
-[00:01:35.436] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:35.858] Browser LOG     ✅ Test data initialized successfully!
-[00:01:35.858] Browser LOG     
+[00:00:00.714] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.824] Server  LOG      ✓ Ready in 577ms
+[00:00:01.421] Server  WARN     ⚠ Cross origin request detected from 172.20.48.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[00:00:03.268] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.418] Browser LOG     ✅ Test data initialized successfully!
+[00:00:04.418] Browser LOG     
 🔑 Test Credentials:
 
-[00:01:35.859] Browser LOG     1️⃣ ADMIN USER:
-[00:01:35.859] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:01:35.859] Browser LOG        Phone: 8888888001
-[00:01:35.859] Browser LOG        MPIN: 1234
-[00:01:35.860] Browser LOG        Role: Admin
+[00:00:04.418] Browser LOG     1️⃣ ADMIN USER:
+[00:00:04.418] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:00:04.418] Browser LOG        Phone: 8888888001
+[00:00:04.418] Browser LOG        MPIN: 1234
+[00:00:04.418] Browser LOG        Role: Admin
 
-[00:01:35.860] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:01:35.860] Browser LOG        Unique ID: EC-AGR-001
-[00:01:35.860] Browser LOG        Phone: 7777777001
-[00:01:35.860] Browser LOG        MPIN: 1234
-[00:01:35.860] Browser LOG        Role: Election Commission
+[00:00:04.418] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:00:04.418] Browser LOG        Unique ID: EC-AGR-001
+[00:00:04.418] Browser LOG        Phone: 7777777001
+[00:00:04.418] Browser LOG        MPIN: 1234
+[00:00:04.418] Browser LOG        Role: Election Commission
 
-[00:01:35.860] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:01:35.860] Browser LOG        Unique ID: AGR-USER-001
-[00:01:35.860] Browser LOG        Phone: 9999999999
-[00:01:35.860] Browser LOG        MPIN: 1234
-[00:01:35.860] Browser LOG        Role: User
+[00:00:04.418] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:00:04.418] Browser LOG        Unique ID: AGR-USER-001
+[00:00:04.418] Browser LOG        Phone: 9999999999
+[00:00:04.418] Browser LOG        MPIN: 1234
+[00:00:04.418] Browser LOG        Role: User
 
-[00:01:36.174] Browser LOG     ✅ Test data initialized successfully!
-[00:01:36.174] Browser LOG     
+[00:00:04.418] Browser LOG     ✅ Test data initialized successfully!
+[00:00:04.418] Browser LOG     
 🔑 Test Credentials:
 
-[00:01:36.174] Browser LOG     1️⃣ ADMIN USER:
-[00:01:36.175] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:01:36.175] Browser LOG        Phone: 8888888001
-[00:01:36.175] Browser LOG        MPIN: 1234
-[00:01:36.175] Browser LOG        Role: Admin
+[00:00:04.418] Browser LOG     1️⃣ ADMIN USER:
+[00:00:04.418] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:00:04.418] Browser LOG        Phone: 8888888001
+[00:00:04.418] Browser LOG        MPIN: 1234
+[00:00:04.418] Browser LOG        Role: Admin
 
-[00:01:36.175] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:01:36.175] Browser LOG        Unique ID: EC-AGR-001
-[00:01:36.175] Browser LOG        Phone: 7777777001
-[00:01:36.175] Browser LOG        MPIN: 1234
-[00:01:36.175] Browser LOG        Role: Election Commission
+[00:00:04.418] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:00:04.418] Browser LOG        Unique ID: EC-AGR-001
+[00:00:04.418] Browser LOG        Phone: 7777777001
+[00:00:04.418] Browser LOG        MPIN: 1234
+[00:00:04.418] Browser LOG        Role: Election Commission
 
-[00:01:36.175] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:01:36.175] Browser LOG        Unique ID: AGR-USER-001
-[00:01:36.175] Browser LOG        Phone: 9999999999
-[00:01:36.175] Browser LOG        MPIN: 1234
-[00:01:36.175] Browser LOG        Role: User
+[00:00:04.418] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:00:04.418] Browser LOG        Unique ID: AGR-USER-001
+[00:00:04.418] Browser LOG        Phone: 9999999999
+[00:00:04.418] Browser LOG        MPIN: 1234
+[00:00:04.418] Browser LOG        Role: User
 
-[00:01:36.854] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:01:36.854] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:01:36.854] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1767888312219}
-[00:02:33.859] Server  LOG      ○ Compiling /auth ...
-[00:02:37.485] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1767888372727}
-[00:04:00.538] Server  LOG      ○ Compiling /api/auth/request-otp ...
-[00:05:10.248] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:10.658] Browser LOG     ✅ Test data initialized successfully!
-[00:05:10.658] Browser LOG     
+[00:00:04.418] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.418] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/election-commission","route":"/dashboard/election-commission"}
+[00:00:04.418] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/dashboard/election-commission color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/election-commission","o":"http://172.20.48.1:3000/dashboard/election-commission","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773251050185} /_vercel/insights/view
+[00:00:14.208] Server  LOG      ✓ Compiled in 82ms
+[00:00:36.970] Server  ERROR   (node:12284) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[00:00:37.055] Browser LOG     Updating election status: 69abd8e6e8dc31f17c9965e8 to active
+[00:00:38.450] Browser LOG     Update successful: {"election":{"__v":0,"_id":"69abd8e6e8dc31f17c9965e8","blockchainElectionId":"3","blockchainTxHash":"0x21eb732e79b485bc96bfaea01a1ca4f7b7e2b856183bc9724e539c6a96c9ea27","createdAt":"2026-03-07T07:51:02.893Z","createdBy":"EC-AGR-001","description":"TEST","endDate":"2026-03-08T18:30:00.000Z","parties":[{"_id":"69abd8e6e8dc31f17c9965e9","id":"party-1772869862890-jwl9iw6pf","manifesto":"xyz","name":"BJP","symbol":"xyz"},{"_id":"69abd8e6e8dc31f17c9965ea","id":"party-1772869862890-tua127cvd","manifesto":"XYZ","name":"CONGRESS","symbol":"xyz"}],"startDate":"2026-03-06T18:30:00.000Z","status":"active","title":"LOCAL ELE","totalVotes":0,"type":"local","updatedAt":"2026-03-11T17:44:43.969Z"},"message":"Election updated successfully","success":true}
+[00:00:45.002] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:45.002] Browser LOG     ✅ Test data initialized successfully!
+[00:00:45.002] Browser LOG     
 🔑 Test Credentials:
 
-[00:05:10.658] Browser LOG     1️⃣ ADMIN USER:
-[00:05:10.658] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:05:10.658] Browser LOG        Phone: 8888888001
-[00:05:10.658] Browser LOG        MPIN: 1234
-[00:05:10.658] Browser LOG        Role: Admin
+[00:00:45.002] Browser LOG     1️⃣ ADMIN USER:
+[00:00:45.002] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:00:45.002] Browser LOG        Phone: 8888888001
+[00:00:45.002] Browser LOG        MPIN: 1234
+[00:00:45.002] Browser LOG        Role: Admin
 
-[00:05:10.658] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:05:10.658] Browser LOG        Unique ID: EC-AGR-001
-[00:05:10.659] Browser LOG        Phone: 7777777001
-[00:05:10.659] Browser LOG        MPIN: 1234
-[00:05:10.659] Browser LOG        Role: Election Commission
+[00:00:45.002] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:00:45.002] Browser LOG        Unique ID: EC-AGR-001
+[00:00:45.002] Browser LOG        Phone: 7777777001
+[00:00:45.002] Browser LOG        MPIN: 1234
+[00:00:45.002] Browser LOG        Role: Election Commission
 
-[00:05:10.659] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:05:10.659] Browser LOG        Unique ID: AGR-USER-001
-[00:05:10.659] Browser LOG        Phone: 9999999999
-[00:05:10.659] Browser LOG        MPIN: 1234
-[00:05:10.659] Browser LOG        Role: User
+[00:00:45.002] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:00:45.002] Browser LOG        Unique ID: AGR-USER-001
+[00:00:45.002] Browser LOG        Phone: 9999999999
+[00:00:45.002] Browser LOG        MPIN: 1234
+[00:00:45.002] Browser LOG        Role: User
 
-[00:05:10.659] Browser LOG     ✅ Test data initialized successfully!
-[00:05:10.659] Browser LOG     
+[00:00:45.146] Browser LOG     ✅ Test data initialized successfully!
+[00:00:45.146] Browser LOG     
 🔑 Test Credentials:
 
-[00:05:10.659] Browser LOG     1️⃣ ADMIN USER:
-[00:05:10.659] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:05:10.659] Browser LOG        Phone: 8888888001
-[00:05:10.660] Browser LOG        MPIN: 1234
-[00:05:10.660] Browser LOG        Role: Admin
+[00:00:45.146] Browser LOG     1️⃣ ADMIN USER:
+[00:00:45.146] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:00:45.146] Browser LOG        Phone: 8888888001
+[00:00:45.146] Browser LOG        MPIN: 1234
+[00:00:45.146] Browser LOG        Role: Admin
 
-[00:05:10.660] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:05:10.660] Browser LOG        Unique ID: EC-AGR-001
-[00:05:10.660] Browser LOG        Phone: 7777777001
-[00:05:10.660] Browser LOG        MPIN: 1234
-[00:05:10.660] Browser LOG        Role: Election Commission
+[00:00:45.146] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:00:45.146] Browser LOG        Unique ID: EC-AGR-001
+[00:00:45.146] Browser LOG        Phone: 7777777001
+[00:00:45.146] Browser LOG        MPIN: 1234
+[00:00:45.146] Browser LOG        Role: Election Commission
 
-[00:05:10.660] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:05:10.660] Browser LOG        Unique ID: AGR-USER-001
-[00:05:10.660] Browser LOG        Phone: 9999999999
-[00:05:10.660] Browser LOG        MPIN: 1234
-[00:05:10.660] Browser LOG        Role: User
+[00:00:45.146] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:00:45.146] Browser LOG        Unique ID: AGR-USER-001
+[00:00:45.146] Browser LOG        Phone: 9999999999
+[00:00:45.146] Browser LOG        MPIN: 1234
+[00:00:45.146] Browser LOG        Role: User
 
-[00:05:10.660] Browser LOG     [Dashboard] Fetching user data...
-[00:05:10.660] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:05:10.660] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
-[00:05:10.660] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1767888526015}
-[00:05:11.524] Browser LOG     [Dashboard] Status: 200
-[00:05:11.524] Browser LOG     [Dashboard] User data: {"success":true,"user":{"fullName":"Election Commission","phone":"7777777001","role":"election_commission","uniqueId":"EC-AGR-001"}}
-[00:05:11.524] Browser LOG     [Dashboard] User role: election_commission
-[00:05:11.524] Browser LOG     [Dashboard] Redirecting to EC dashboard
-[00:05:14.628] Server  LOG      ○ Compiling /dashboard/election-commission ...
-[00:05:18.417] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:18.417] Browser LOG     ✅ Test data initialized successfully!
-[00:05:18.417] Browser LOG     
+[00:00:45.146] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:45.146] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[00:00:45.146] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://172.20.48.1:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773251091905} /_vercel/insights/view
+[00:01:24.651] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:24.651] Browser LOG     ✅ Test data initialized successfully!
+[00:01:24.651] Browser LOG     
 🔑 Test Credentials:
 
-[00:05:18.417] Browser LOG     1️⃣ ADMIN USER:
-[00:05:18.417] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:05:18.417] Browser LOG        Phone: 8888888001
-[00:05:18.417] Browser LOG        MPIN: 1234
-[00:05:18.417] Browser LOG        Role: Admin
+[00:01:24.651] Browser LOG     1️⃣ ADMIN USER:
+[00:01:24.651] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:01:24.651] Browser LOG        Phone: 8888888001
+[00:01:24.651] Browser LOG        MPIN: 1234
+[00:01:24.651] Browser LOG        Role: Admin
 
-[00:05:18.417] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:05:18.417] Browser LOG        Unique ID: EC-AGR-001
-[00:05:18.417] Browser LOG        Phone: 7777777001
-[00:05:18.417] Browser LOG        MPIN: 1234
-[00:05:18.417] Browser LOG        Role: Election Commission
+[00:01:24.651] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:01:24.651] Browser LOG        Unique ID: EC-AGR-001
+[00:01:24.651] Browser LOG        Phone: 7777777001
+[00:01:24.651] Browser LOG        MPIN: 1234
+[00:01:24.651] Browser LOG        Role: Election Commission
 
-[00:05:18.417] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:05:18.417] Browser LOG        Unique ID: AGR-USER-001
-[00:05:18.417] Browser LOG        Phone: 9999999999
-[00:05:18.417] Browser LOG        MPIN: 1234
-[00:05:18.417] Browser LOG        Role: User
+[00:01:24.651] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:01:24.651] Browser LOG        Unique ID: AGR-USER-001
+[00:01:24.651] Browser LOG        Phone: 9999999999
+[00:01:24.651] Browser LOG        MPIN: 1234
+[00:01:24.651] Browser LOG        Role: User
 
-[00:05:18.548] Browser LOG     ✅ Test data initialized successfully!
-[00:05:18.548] Browser LOG     
+[00:01:24.780] Browser LOG     ✅ Test data initialized successfully!
+[00:01:24.780] Browser LOG     
 🔑 Test Credentials:
 
-[00:05:18.548] Browser LOG     1️⃣ ADMIN USER:
-[00:05:18.548] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:05:18.548] Browser LOG        Phone: 8888888001
-[00:05:18.548] Browser LOG        MPIN: 1234
-[00:05:18.548] Browser LOG        Role: Admin
+[00:01:24.780] Browser LOG     1️⃣ ADMIN USER:
+[00:01:24.780] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:01:24.780] Browser LOG        Phone: 8888888001
+[00:01:24.780] Browser LOG        MPIN: 1234
+[00:01:24.780] Browser LOG        Role: Admin
 
-[00:05:18.548] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:05:18.548] Browser LOG        Unique ID: EC-AGR-001
-[00:05:18.548] Browser LOG        Phone: 7777777001
-[00:05:18.548] Browser LOG        MPIN: 1234
-[00:05:18.548] Browser LOG        Role: Election Commission
+[00:01:24.780] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:01:24.780] Browser LOG        Unique ID: EC-AGR-001
+[00:01:24.780] Browser LOG        Phone: 7777777001
+[00:01:24.780] Browser LOG        MPIN: 1234
+[00:01:24.780] Browser LOG        Role: Election Commission
 
-[00:05:18.548] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:05:18.548] Browser LOG        Unique ID: AGR-USER-001
-[00:05:18.548] Browser LOG        Phone: 9999999999
-[00:05:18.548] Browser LOG        MPIN: 1234
-[00:05:18.548] Browser LOG        Role: User
+[00:01:24.780] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:01:24.780] Browser LOG        Unique ID: AGR-USER-001
+[00:01:24.780] Browser LOG        Phone: 9999999999
+[00:01:24.780] Browser LOG        MPIN: 1234
+[00:01:24.780] Browser LOG        Role: User
 
-[00:05:18.740] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:05:18.740] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/election-commission","route":"/dashboard/election-commission"}
-[00:05:18.740] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/election-commission color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/election-commission","o":"http://localhost:3000/dashboard/election-commission","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1767888534105}
-[00:05:22.519] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:05:22.519] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:08:20.265] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:20.621] Browser LOG     ✅ Test data initialized successfully!
-[00:08:20.621] Browser LOG     
+[00:01:24.780] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:24.780] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/user","route":"/dashboard/user"}
+[00:01:24.780] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/dashboard/user color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/user","o":"http://172.20.48.1:3000/dashboard/user","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773251131539} /_vercel/insights/view
+[00:01:29.033] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://172.20.48.1:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773251135790} /_vercel/insights/view
+[00:02:00.508] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:00.508] Browser LOG     ✅ Test data initialized successfully!
+[00:02:00.508] Browser LOG     
 🔑 Test Credentials:
 
-[00:08:20.621] Browser LOG     1️⃣ ADMIN USER:
-[00:08:20.621] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:08:20.621] Browser LOG        Phone: 8888888001
-[00:08:20.621] Browser LOG        MPIN: 1234
-[00:08:20.621] Browser LOG        Role: Admin
+[00:02:00.508] Browser LOG     1️⃣ ADMIN USER:
+[00:02:00.508] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:02:00.508] Browser LOG        Phone: 8888888001
+[00:02:00.508] Browser LOG        MPIN: 1234
+[00:02:00.508] Browser LOG        Role: Admin
 
-[00:08:20.621] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:08:20.621] Browser LOG        Unique ID: EC-AGR-001
-[00:08:20.621] Browser LOG        Phone: 7777777001
-[00:08:20.622] Browser LOG        MPIN: 1234
-[00:08:20.622] Browser LOG        Role: Election Commission
+[00:02:00.508] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:02:00.508] Browser LOG        Unique ID: EC-AGR-001
+[00:02:00.508] Browser LOG        Phone: 7777777001
+[00:02:00.508] Browser LOG        MPIN: 1234
+[00:02:00.508] Browser LOG        Role: Election Commission
 
-[00:08:20.622] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:08:20.622] Browser LOG        Unique ID: AGR-USER-001
-[00:08:20.622] Browser LOG        Phone: 9999999999
-[00:08:20.622] Browser LOG        MPIN: 1234
-[00:08:20.622] Browser LOG        Role: User
+[00:02:00.508] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:02:00.508] Browser LOG        Unique ID: AGR-USER-001
+[00:02:00.508] Browser LOG        Phone: 9999999999
+[00:02:00.508] Browser LOG        MPIN: 1234
+[00:02:00.508] Browser LOG        Role: User
 
-[00:08:20.622] Browser LOG     ✅ Test data initialized successfully!
-[00:08:20.622] Browser LOG     
+[00:02:00.670] Browser LOG     ✅ Test data initialized successfully!
+[00:02:00.670] Browser LOG     
 🔑 Test Credentials:
 
-[00:08:20.622] Browser LOG     1️⃣ ADMIN USER:
-[00:08:20.622] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:08:20.622] Browser LOG        Phone: 8888888001
-[00:08:20.622] Browser LOG        MPIN: 1234
-[00:08:20.622] Browser LOG        Role: Admin
+[00:02:00.670] Browser LOG     1️⃣ ADMIN USER:
+[00:02:00.670] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:02:00.670] Browser LOG        Phone: 8888888001
+[00:02:00.670] Browser LOG        MPIN: 1234
+[00:02:00.670] Browser LOG        Role: Admin
 
-[00:08:20.622] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:08:20.622] Browser LOG        Unique ID: EC-AGR-001
-[00:08:20.622] Browser LOG        Phone: 7777777001
-[00:08:20.622] Browser LOG        MPIN: 1234
-[00:08:20.622] Browser LOG        Role: Election Commission
+[00:02:00.670] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:02:00.670] Browser LOG        Unique ID: EC-AGR-001
+[00:02:00.670] Browser LOG        Phone: 7777777001
+[00:02:00.670] Browser LOG        MPIN: 1234
+[00:02:00.670] Browser LOG        Role: Election Commission
 
-[00:08:20.622] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:08:20.622] Browser LOG        Unique ID: AGR-USER-001
-[00:08:20.622] Browser LOG        Phone: 9999999999
-[00:08:20.622] Browser LOG        MPIN: 1234
-[00:08:20.622] Browser LOG        Role: User
+[00:02:00.670] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:02:00.670] Browser LOG        Unique ID: AGR-USER-001
+[00:02:00.670] Browser LOG        Phone: 9999999999
+[00:02:00.670] Browser LOG        MPIN: 1234
+[00:02:00.670] Browser LOG        Role: User
 
-[00:08:20.622] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:08:20.622] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/election-commission","route":"/dashboard/election-commission"}
-[00:08:20.622] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/election-commission color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/election-commission","o":"http://localhost:3000/dashboard/election-commission","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1767888715967}
-[00:08:35.668] Browser LOG     Updating election status: 695fd748727917f379356d0e to active
-[00:08:37.424] Browser LOG     Update successful: {"election":{"__v":0,"_id":"695fd748727917f379356d0e","createdAt":"2026-01-08T16:11:53.048Z","createdBy":"EC-AGR-001","description":"odisha","endDate":"2026-01-10T18:30:00.000Z","parties":[{"_id":"695fd748727917f379356d0f","id":"party-1767888712882-b3m4q4wye","manifesto":"rwrw3twtw","name":"BJB","symbol":"BJB"},{"_id":"695fd748727917f379356d10","id":"party-1767888712882-l0gxfd4qr","manifesto":"egwggerge","name":"congress","symbol":"cond"}],"startDate":"2026-01-07T18:30:00.000Z","status":"active","title":"State election","totalVotes":0,"type":"state","updatedAt":"2026-01-08T16:12:11.153Z"},"message":"Election updated successfully","success":true}
-[00:08:46.933] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:08:46.934] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:08:59.637] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:59.781] Browser LOG     ✅ Test data initialized successfully!
-[00:08:59.781] Browser LOG     
+[00:02:00.670] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:00.670] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/election-commission","route":"/dashboard/election-commission"}
+[00:02:00.670] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/dashboard/election-commission color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/election-commission","o":"http://172.20.48.1:3000/dashboard/election-commission","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773251167427} /_vercel/insights/view
+[00:02:11.215] Browser LOG     Edit time dialog opened for: LOCAL ELE
+[00:02:11.215] Browser LOG     Start: 2026-03-07T00:00
+[00:02:11.215] Browser LOG     End: 2026-03-09T00:00
+[00:02:13.052] Browser LOG     📅 Updating election time:
+[00:02:13.052] Browser LOG       - Election ID: 69abd8e6e8dc31f17c9965e8
+[00:02:13.052] Browser LOG       - New start: 2026-03-06T18:30:00.000Z
+[00:02:13.052] Browser LOG       - New end: 2026-03-08T18:30:00.000Z
+[00:02:14.527] Browser LOG     Update time response: {"election":{"__v":0,"_id":"69abd8e6e8dc31f17c9965e8","blockchainElectionId":"3","blockchainTxHash":"0x21eb732e79b485bc96bfaea01a1ca4f7b7e2b856183bc9724e539c6a96c9ea27","createdAt":"2026-03-07T07:51:02.893Z","createdBy":"EC-AGR-001","description":"TEST","endDate":"2026-03-08T18:30:00.000Z","parties":[{"_id":"69abd8e6e8dc31f17c9965e9","id":"party-1772869862890-jwl9iw6pf","manifesto":"xyz","name":"BJP","symbol":"xyz"},{"_id":"69abd8e6e8dc31f17c9965ea","id":"party-1772869862890-tua127cvd","manifesto":"XYZ","name":"CONGRESS","symbol":"xyz"}],"startDate":"2026-03-06T18:30:00.000Z","status":"completed","title":"LOCAL ELE","totalVotes":0,"type":"local","updatedAt":"2026-03-11T17:46:19.904Z"},"message":"Election updated successfully","success":true}
+[00:02:19.222] Browser LOG     Deleting election with ID: 69abd8e6e8dc31f17c9965e8
+[00:02:25.647] Browser LOG     Deleting election with ID: 69abcf69e8dc31f17c996531
+[00:02:31.457] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:02:31.457] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:04:21.117] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:21.289] Browser LOG     ✅ Test data initialized successfully!
+[00:04:21.289] Browser LOG     
 🔑 Test Credentials:
 
-[00:08:59.781] Browser LOG     1️⃣ ADMIN USER:
-[00:08:59.781] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:08:59.781] Browser LOG        Phone: 8888888001
-[00:08:59.782] Browser LOG        MPIN: 1234
-[00:08:59.782] Browser LOG        Role: Admin
+[00:04:21.289] Browser LOG     1️⃣ ADMIN USER:
+[00:04:21.289] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:04:21.289] Browser LOG        Phone: 8888888001
+[00:04:21.289] Browser LOG        MPIN: 1234
+[00:04:21.289] Browser LOG        Role: Admin
 
-[00:08:59.782] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:08:59.782] Browser LOG        Unique ID: EC-AGR-001
-[00:08:59.782] Browser LOG        Phone: 7777777001
-[00:08:59.782] Browser LOG        MPIN: 1234
-[00:08:59.782] Browser LOG        Role: Election Commission
+[00:04:21.289] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:04:21.289] Browser LOG        Unique ID: EC-AGR-001
+[00:04:21.289] Browser LOG        Phone: 7777777001
+[00:04:21.289] Browser LOG        MPIN: 1234
+[00:04:21.289] Browser LOG        Role: Election Commission
 
-[00:08:59.782] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:08:59.782] Browser LOG        Unique ID: AGR-USER-001
-[00:08:59.782] Browser LOG        Phone: 9999999999
-[00:08:59.782] Browser LOG        MPIN: 1234
-[00:08:59.782] Browser LOG        Role: User
+[00:04:21.290] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:04:21.290] Browser LOG        Unique ID: AGR-USER-001
+[00:04:21.290] Browser LOG        Phone: 9999999999
+[00:04:21.290] Browser LOG        MPIN: 1234
+[00:04:21.290] Browser LOG        Role: User
 
-[00:09:00.045] Browser LOG     ✅ Test data initialized successfully!
-[00:09:00.045] Browser LOG     
+[00:04:21.290] Browser LOG     ✅ Test data initialized successfully!
+[00:04:21.290] Browser LOG     
 🔑 Test Credentials:
 
-[00:09:00.045] Browser LOG     1️⃣ ADMIN USER:
-[00:09:00.045] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:09:00.045] Browser LOG        Phone: 8888888001
-[00:09:00.045] Browser LOG        MPIN: 1234
-[00:09:00.045] Browser LOG        Role: Admin
+[00:04:21.290] Browser LOG     1️⃣ ADMIN USER:
+[00:04:21.290] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:04:21.290] Browser LOG        Phone: 8888888001
+[00:04:21.290] Browser LOG        MPIN: 1234
+[00:04:21.290] Browser LOG        Role: Admin
 
-[00:09:00.045] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:09:00.045] Browser LOG        Unique ID: EC-AGR-001
-[00:09:00.045] Browser LOG        Phone: 7777777001
-[00:09:00.045] Browser LOG        MPIN: 1234
-[00:09:00.045] Browser LOG        Role: Election Commission
+[00:04:21.290] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:04:21.290] Browser LOG        Unique ID: EC-AGR-001
+[00:04:21.290] Browser LOG        Phone: 7777777001
+[00:04:21.290] Browser LOG        MPIN: 1234
+[00:04:21.290] Browser LOG        Role: Election Commission
 
-[00:09:00.045] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:09:00.045] Browser LOG        Unique ID: AGR-USER-001
-[00:09:00.045] Browser LOG        Phone: 9999999999
-[00:09:00.045] Browser LOG        MPIN: 1234
-[00:09:00.045] Browser LOG        Role: User
+[00:04:21.290] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:04:21.290] Browser LOG        Unique ID: AGR-USER-001
+[00:04:21.290] Browser LOG        Phone: 9999999999
+[00:04:21.290] Browser LOG        MPIN: 1234
+[00:04:21.290] Browser LOG        Role: User
 
-[00:09:00.162] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:09:00.162] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
-[00:09:00.162] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1767888755529}
-[00:11:06.925] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:11:07.219] Browser LOG     ✅ Test data initialized successfully!
-[00:11:07.219] Browser LOG     
+[00:04:21.290] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:21.290] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/election-commission","route":"/dashboard/election-commission"}
+[00:04:21.290] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/dashboard/election-commission color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/election-commission","o":"http://172.20.48.1:3000/dashboard/election-commission","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773251308048} /_vercel/insights/view
+[00:04:30.087] Browser LOG     Updating election status: 69b1aacf930e9a3576bfa2fa to active
+[00:04:31.489] Browser LOG     Update successful: {"election":{"__v":0,"_id":"69b1aacf930e9a3576bfa2fa","blockchainElectionId":"4","blockchainTxHash":"0x08e6de0bb28c3875e627d8163b6f12c64911880fa25f757e5c30d013a59ee59c","createdAt":"2026-03-11T17:47:59.927Z","createdBy":"EC-AGR-001","description":"XYZ","endDate":"2026-03-13T18:30:00.000Z","parties":[{"_id":"69b1aacf930e9a3576bfa2fb","id":"party-1773251279922-x5xtgc291","manifesto":"XYZ","name":"BJP","symbol":"XYZ"},{"_id":"69b1aacf930e9a3576bfa2fc","id":"party-1773251279922-hgj7eo5zk","manifesto":"XYZ","name":"CONGRESS","symbol":"XYZ"}],"startDate":"2026-03-10T18:30:00.000Z","status":"active","title":"LOCAL ELE","totalVotes":0,"type":"local","updatedAt":"2026-03-11T17:48:36.917Z"},"message":"Election updated successfully","success":true}
+[00:04:35.104] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:35.104] Browser LOG     ✅ Test data initialized successfully!
+[00:04:35.104] Browser LOG     
 🔑 Test Credentials:
 
-[00:11:07.219] Browser LOG     1️⃣ ADMIN USER:
-[00:11:07.219] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:11:07.219] Browser LOG        Phone: 8888888001
-[00:11:07.219] Browser LOG        MPIN: 1234
-[00:11:07.219] Browser LOG        Role: Admin
+[00:04:35.104] Browser LOG     1️⃣ ADMIN USER:
+[00:04:35.104] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:04:35.104] Browser LOG        Phone: 8888888001
+[00:04:35.104] Browser LOG        MPIN: 1234
+[00:04:35.104] Browser LOG        Role: Admin
 
-[00:11:07.219] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:11:07.219] Browser LOG        Unique ID: EC-AGR-001
-[00:11:07.219] Browser LOG        Phone: 7777777001
-[00:11:07.219] Browser LOG        MPIN: 1234
-[00:11:07.219] Browser LOG        Role: Election Commission
+[00:04:35.104] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:04:35.104] Browser LOG        Unique ID: EC-AGR-001
+[00:04:35.104] Browser LOG        Phone: 7777777001
+[00:04:35.104] Browser LOG        MPIN: 1234
+[00:04:35.104] Browser LOG        Role: Election Commission
 
-[00:11:07.219] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:11:07.220] Browser LOG        Unique ID: AGR-USER-001
-[00:11:07.220] Browser LOG        Phone: 9999999999
-[00:11:07.220] Browser LOG        MPIN: 1234
-[00:11:07.220] Browser LOG        Role: User
+[00:04:35.104] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:04:35.104] Browser LOG        Unique ID: AGR-USER-001
+[00:04:35.104] Browser LOG        Phone: 9999999999
+[00:04:35.104] Browser LOG        MPIN: 1234
+[00:04:35.104] Browser LOG        Role: User
 
-[00:11:07.220] Browser LOG     ✅ Test data initialized successfully!
-[00:11:07.220] Browser LOG     
+[00:04:35.259] Browser LOG     ✅ Test data initialized successfully!
+[00:04:35.259] Browser LOG     
 🔑 Test Credentials:
 
-[00:11:07.220] Browser LOG     1️⃣ ADMIN USER:
-[00:11:07.220] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:11:07.220] Browser LOG        Phone: 8888888001
-[00:11:07.220] Browser LOG        MPIN: 1234
-[00:11:07.220] Browser LOG        Role: Admin
+[00:04:35.259] Browser LOG     1️⃣ ADMIN USER:
+[00:04:35.259] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:04:35.259] Browser LOG        Phone: 8888888001
+[00:04:35.259] Browser LOG        MPIN: 1234
+[00:04:35.259] Browser LOG        Role: Admin
 
-[00:11:07.220] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:11:07.220] Browser LOG        Unique ID: EC-AGR-001
-[00:11:07.220] Browser LOG        Phone: 7777777001
-[00:11:07.220] Browser LOG        MPIN: 1234
-[00:11:07.220] Browser LOG        Role: Election Commission
+[00:04:35.259] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:04:35.259] Browser LOG        Unique ID: EC-AGR-001
+[00:04:35.259] Browser LOG        Phone: 7777777001
+[00:04:35.259] Browser LOG        MPIN: 1234
+[00:04:35.259] Browser LOG        Role: Election Commission
 
-[00:11:07.220] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:11:07.220] Browser LOG        Unique ID: AGR-USER-001
-[00:11:07.220] Browser LOG        Phone: 9999999999
-[00:11:07.220] Browser LOG        MPIN: 1234
-[00:11:07.220] Browser LOG        Role: User
+[00:04:35.259] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:04:35.259] Browser LOG        Unique ID: AGR-USER-001
+[00:04:35.259] Browser LOG        Phone: 9999999999
+[00:04:35.259] Browser LOG        MPIN: 1234
+[00:04:35.259] Browser LOG        Role: User
 
-[00:11:07.220] Browser LOG     [Dashboard] Fetching user data...
-[00:11:07.220] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:11:07.220] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
-[00:11:07.220] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1767888882584}
-[00:11:07.372] Browser LOG     [Dashboard] Status: 200
-[00:11:07.372] Browser LOG     [Dashboard] User data: {"success":true,"user":{"fullName":"Admin User","phone":"8888888001","role":"admin","uniqueId":"ADMIN-AGR-001"}}
-[00:11:07.372] Browser LOG     [Dashboard] User role: admin
-[00:11:07.373] Browser LOG     [Dashboard] Redirecting to admin dashboard
-[00:11:11.327] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:11:11.563] Browser LOG     ✅ Test data initialized successfully!
-[00:11:11.563] Browser LOG     
+[00:04:35.259] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:35.259] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[00:04:35.259] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://172.20.48.1:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773251322018} /_vercel/insights/view
+[00:05:04.290] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:04.290] Browser LOG     ✅ Test data initialized successfully!
+[00:05:04.290] Browser LOG     
 🔑 Test Credentials:
 
-[00:11:11.563] Browser LOG     1️⃣ ADMIN USER:
-[00:11:11.563] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:11:11.563] Browser LOG        Phone: 8888888001
-[00:11:11.563] Browser LOG        MPIN: 1234
-[00:11:11.563] Browser LOG        Role: Admin
+[00:05:04.290] Browser LOG     1️⃣ ADMIN USER:
+[00:05:04.290] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:05:04.290] Browser LOG        Phone: 8888888001
+[00:05:04.290] Browser LOG        MPIN: 1234
+[00:05:04.290] Browser LOG        Role: Admin
 
-[00:11:11.563] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:11:11.563] Browser LOG        Unique ID: EC-AGR-001
-[00:11:11.563] Browser LOG        Phone: 7777777001
-[00:11:11.563] Browser LOG        MPIN: 1234
-[00:11:11.563] Browser LOG        Role: Election Commission
+[00:05:04.290] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:05:04.290] Browser LOG        Unique ID: EC-AGR-001
+[00:05:04.290] Browser LOG        Phone: 7777777001
+[00:05:04.290] Browser LOG        MPIN: 1234
+[00:05:04.290] Browser LOG        Role: Election Commission
 
-[00:11:11.563] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:11:11.563] Browser LOG        Unique ID: AGR-USER-001
-[00:11:11.563] Browser LOG        Phone: 9999999999
-[00:11:11.563] Browser LOG        MPIN: 1234
-[00:11:11.563] Browser LOG        Role: User
+[00:05:04.290] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:05:04.290] Browser LOG        Unique ID: AGR-USER-001
+[00:05:04.290] Browser LOG        Phone: 9999999999
+[00:05:04.290] Browser LOG        MPIN: 1234
+[00:05:04.290] Browser LOG        Role: User
 
-[00:11:11.563] Browser LOG     ✅ Test data initialized successfully!
-[00:11:11.563] Browser LOG     
+[00:05:04.421] Browser LOG     ✅ Test data initialized successfully!
+[00:05:04.421] Browser LOG     
 🔑 Test Credentials:
 
-[00:11:11.563] Browser LOG     1️⃣ ADMIN USER:
-[00:11:11.563] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:11:11.563] Browser LOG        Phone: 8888888001
-[00:11:11.563] Browser LOG        MPIN: 1234
-[00:11:11.563] Browser LOG        Role: Admin
+[00:05:04.421] Browser LOG     1️⃣ ADMIN USER:
+[00:05:04.421] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:05:04.421] Browser LOG        Phone: 8888888001
+[00:05:04.421] Browser LOG        MPIN: 1234
+[00:05:04.421] Browser LOG        Role: Admin
 
-[00:11:11.563] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:11:11.563] Browser LOG        Unique ID: EC-AGR-001
-[00:11:11.563] Browser LOG        Phone: 7777777001
-[00:11:11.563] Browser LOG        MPIN: 1234
-[00:11:11.563] Browser LOG        Role: Election Commission
+[00:05:04.421] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:05:04.421] Browser LOG        Unique ID: EC-AGR-001
+[00:05:04.421] Browser LOG        Phone: 7777777001
+[00:05:04.421] Browser LOG        MPIN: 1234
+[00:05:04.421] Browser LOG        Role: Election Commission
 
-[00:11:11.563] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:11:11.563] Browser LOG        Unique ID: AGR-USER-001
-[00:11:11.563] Browser LOG        Phone: 9999999999
-[00:11:11.563] Browser LOG        MPIN: 1234
-[00:11:11.563] Browser LOG        Role: User
+[00:05:04.421] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:05:04.421] Browser LOG        Unique ID: AGR-USER-001
+[00:05:04.421] Browser LOG        Phone: 9999999999
+[00:05:04.421] Browser LOG        MPIN: 1234
+[00:05:04.421] Browser LOG        Role: User
 
-[00:11:11.563] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:11:11.563] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/admin","route":"/dashboard/admin"}
-[00:11:11.563] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/admin color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/admin","o":"http://localhost:3000/dashboard/admin","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1767888886926}
-[00:12:24.712] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:12:24.895] Browser LOG     ✅ Test data initialized successfully!
-[00:12:24.895] Browser LOG     
+[00:05:04.421] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:04.421] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/user","route":"/dashboard/user"}
+[00:05:04.421] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/dashboard/user color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/user","o":"http://172.20.48.1:3000/dashboard/user","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773251351180} /_vercel/insights/view
+[00:06:40.694] Server  LOG      ✓ Compiled in 92ms
+[00:07:36.656] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://172.20.48.1:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773251503413} /_vercel/insights/view
+[00:08:04.824] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:05.004] Browser LOG     ✅ Test data initialized successfully!
+[00:08:05.004] Browser LOG     
 🔑 Test Credentials:
 
-[00:12:24.895] Browser LOG     1️⃣ ADMIN USER:
-[00:12:24.895] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:12:24.895] Browser LOG        Phone: 8888888001
-[00:12:24.895] Browser LOG        MPIN: 1234
-[00:12:24.895] Browser LOG        Role: Admin
+[00:08:05.004] Browser LOG     1️⃣ ADMIN USER:
+[00:08:05.004] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:08:05.004] Browser LOG        Phone: 8888888001
+[00:08:05.004] Browser LOG        MPIN: 1234
+[00:08:05.004] Browser LOG        Role: Admin
 
-[00:12:24.895] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:12:24.895] Browser LOG        Unique ID: EC-AGR-001
-[00:12:24.895] Browser LOG        Phone: 7777777001
-[00:12:24.895] Browser LOG        MPIN: 1234
-[00:12:24.895] Browser LOG        Role: Election Commission
+[00:08:05.004] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:08:05.004] Browser LOG        Unique ID: EC-AGR-001
+[00:08:05.004] Browser LOG        Phone: 7777777001
+[00:08:05.004] Browser LOG        MPIN: 1234
+[00:08:05.004] Browser LOG        Role: Election Commission
 
-[00:12:24.895] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:12:24.896] Browser LOG        Unique ID: AGR-USER-001
-[00:12:24.896] Browser LOG        Phone: 9999999999
-[00:12:24.896] Browser LOG        MPIN: 1234
-[00:12:24.896] Browser LOG        Role: User
+[00:08:05.004] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:08:05.004] Browser LOG        Unique ID: AGR-USER-001
+[00:08:05.004] Browser LOG        Phone: 9999999999
+[00:08:05.004] Browser LOG        MPIN: 1234
+[00:08:05.004] Browser LOG        Role: User
 
-[00:12:24.896] Browser LOG     ✅ Test data initialized successfully!
-[00:12:24.896] Browser LOG     
+[00:08:05.004] Browser LOG     ✅ Test data initialized successfully!
+[00:08:05.004] Browser LOG     
 🔑 Test Credentials:
 
-[00:12:24.896] Browser LOG     1️⃣ ADMIN USER:
-[00:12:24.896] Browser LOG        Unique ID: ADMIN-AGR-001
-[00:12:24.896] Browser LOG        Phone: 8888888001
-[00:12:24.896] Browser LOG        MPIN: 1234
-[00:12:24.896] Browser LOG        Role: Admin
+[00:08:05.004] Browser LOG     1️⃣ ADMIN USER:
+[00:08:05.004] Browser LOG        Unique ID: ADMIN-AGR-001
+[00:08:05.004] Browser LOG        Phone: 8888888001
+[00:08:05.004] Browser LOG        MPIN: 1234
+[00:08:05.004] Browser LOG        Role: Admin
 
-[00:12:24.896] Browser LOG     2️⃣ ELECTION COMMISSION USER:
-[00:12:24.896] Browser LOG        Unique ID: EC-AGR-001
-[00:12:24.896] Browser LOG        Phone: 7777777001
-[00:12:24.896] Browser LOG        MPIN: 1234
-[00:12:24.896] Browser LOG        Role: Election Commission
+[00:08:05.004] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[00:08:05.004] Browser LOG        Unique ID: EC-AGR-001
+[00:08:05.004] Browser LOG        Phone: 7777777001
+[00:08:05.004] Browser LOG        MPIN: 1234
+[00:08:05.004] Browser LOG        Role: Election Commission
 
-[00:12:24.896] Browser LOG     3️⃣ REGULAR CITIZEN USER:
-[00:12:24.896] Browser LOG        Unique ID: AGR-USER-001
-[00:12:24.896] Browser LOG        Phone: 9999999999
-[00:12:24.896] Browser LOG        MPIN: 1234
-[00:12:24.896] Browser LOG        Role: User
+[00:08:05.004] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[00:08:05.004] Browser LOG        Unique ID: AGR-USER-001
+[00:08:05.004] Browser LOG        Phone: 9999999999
+[00:08:05.004] Browser LOG        MPIN: 1234
+[00:08:05.004] Browser LOG        Role: User
 
-[00:12:25.046] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:12:25.046] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
-[00:12:25.046] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1767888960405}
+[00:08:05.004] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:05.004] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/election-commission","route":"/dashboard/election-commission"}
+[00:08:05.004] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/dashboard/election-commission color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/election-commission","o":"http://172.20.48.1:3000/dashboard/election-commission","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773251531763} /_vercel/insights/view
+[00:08:12.129] Browser LOG     Updating election status: 69b1aacf930e9a3576bfa2fa to completed
+[00:08:13.237] Browser LOG     Update successful: {"election":{"__v":0,"_id":"69b1aacf930e9a3576bfa2fa","blockchainElectionId":"4","blockchainTxHash":"0x08e6de0bb28c3875e627d8163b6f12c64911880fa25f757e5c30d013a59ee59c","createdAt":"2026-03-11T17:47:59.927Z","createdBy":"EC-AGR-001","description":"XYZ","endDate":"2026-03-13T18:30:00.000Z","parties":[{"_id":"69b1aacf930e9a3576bfa2fb","id":"party-1773251279922-x5xtgc291","manifesto":"XYZ","name":"BJP","symbol":"XYZ"},{"_id":"69b1aacf930e9a3576bfa2fc","id":"party-1773251279922-hgj7eo5zk","manifesto":"XYZ","name":"CONGRESS","symbol":"XYZ"}],"startDate":"2026-03-10T18:30:00.000Z","status":"completed","title":"LOCAL ELE","totalVotes":0,"type":"local","updatedAt":"2026-03-11T17:52:18.964Z"},"message":"Election updated successfully","success":true}
+[01:21:43.957] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:21:44.128] Browser LOG     ✅ Test data initialized successfully!
+[01:21:44.128] Browser LOG     
+🔑 Test Credentials:
+
+[01:21:44.128] Browser LOG     1️⃣ ADMIN USER:
+[01:21:44.128] Browser LOG        Unique ID: ADMIN-AGR-001
+[01:21:44.128] Browser LOG        Phone: 8888888001
+[01:21:44.128] Browser LOG        MPIN: 1234
+[01:21:44.128] Browser LOG        Role: Admin
+
+[01:21:44.128] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[01:21:44.128] Browser LOG        Unique ID: EC-AGR-001
+[01:21:44.129] Browser LOG        Phone: 7777777001
+[01:21:44.129] Browser LOG        MPIN: 1234
+[01:21:44.129] Browser LOG        Role: Election Commission
+
+[01:21:44.129] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[01:21:44.129] Browser LOG        Unique ID: AGR-USER-001
+[01:21:44.129] Browser LOG        Phone: 9999999999
+[01:21:44.129] Browser LOG        MPIN: 1234
+[01:21:44.129] Browser LOG        Role: User
+
+[01:21:44.129] Browser LOG     ✅ Test data initialized successfully!
+[01:21:44.129] Browser LOG     
+🔑 Test Credentials:
+
+[01:21:44.129] Browser LOG     1️⃣ ADMIN USER:
+[01:21:44.129] Browser LOG        Unique ID: ADMIN-AGR-001
+[01:21:44.129] Browser LOG        Phone: 8888888001
+[01:21:44.129] Browser LOG        MPIN: 1234
+[01:21:44.129] Browser LOG        Role: Admin
+
+[01:21:44.129] Browser LOG     2️⃣ ELECTION COMMISSION USER:
+[01:21:44.129] Browser LOG        Unique ID: EC-AGR-001
+[01:21:44.129] Browser LOG        Phone: 7777777001
+[01:21:44.129] Browser LOG        MPIN: 1234
+[01:21:44.129] Browser LOG        Role: Election Commission
+
+[01:21:44.129] Browser LOG     3️⃣ REGULAR CITIZEN USER:
+[01:21:44.129] Browser LOG        Unique ID: AGR-USER-001
+[01:21:44.129] Browser LOG        Phone: 9999999999
+[01:21:44.129] Browser LOG        MPIN: 1234
+[01:21:44.129] Browser LOG        Role: User
+
+[01:21:44.129] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:21:44.129] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:21:44.129] Browser LOG     %c[Vercel Web Analytics]%c [view] http://172.20.48.1:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://172.20.48.1:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1773255950888} /_vercel/insights/view

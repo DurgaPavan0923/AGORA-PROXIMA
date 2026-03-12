@@ -110,6 +110,11 @@ export function DigiLockerLogin() {
         throw new Error(data.error || "Invalid MPIN")
       }
 
+      // Store token for API client
+      if (data.token) {
+        localStorage.setItem("token", data.token)
+      }
+
       setSuccess(true)
       setTimeout(() => {
         window.location.href = `/dashboard`

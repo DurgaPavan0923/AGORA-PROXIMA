@@ -14,11 +14,12 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 interface Election {
-  id: string
+  _id: string
+  id?: string
   title: string
   description: string
   status: string
-  parties: Array<{ id: string; name: string }>
+  parties: Array<{ id?: string; _id?: string; name: string }>
 }
 
 export function AdminElectionEditor() {
@@ -41,14 +42,14 @@ export function AdminElectionEditor() {
   }
 
   const handleSave = async () => {
-    if (!editingElection || !editingElection.id) return
+    if (!editingElection || !editingElection._id) return
 
     setLoading(true)
     setError("")
     setSuccess(false)
 
     try {
-      const response = await fetch(`/api/elections/${editingElection.id}`, {
+      const response = await fetch(`/api/elections/${editingElection._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(editingElection),
@@ -89,7 +90,7 @@ export function AdminElectionEditor() {
             </TableHeader>
             <TableBody>
               {elections.map((election) => (
-                <TableRow key={election.id}>
+                <TableRow key={election._id}>
                   <TableCell className="font-medium">{election.title}</TableCell>
                   <TableCell>
                     <Badge variant={election.status === "active" ? "default" : "secondary"}>{election.status}</Badge>
@@ -97,7 +98,7 @@ export function AdminElectionEditor() {
                   <TableCell>{election.parties.length} parties</TableCell>
                   <TableCell>
                     <Dialog
-                      open={editingElection?.id === election.id}
+                      open={editingElection?._id === election._id}
                       onOpenChange={(open) => !open && setEditingElection(null)}
                     >
                       <DialogTrigger asChild>

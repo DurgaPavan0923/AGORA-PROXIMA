@@ -6,12 +6,13 @@ type AppRouteHandlerRoutes = "/api/admin/create-election-commission" | "/api/adm
 type PageRoutes = never
 type LayoutRoutes = "/" | "/dashboard/admin" | "/dashboard/election-commission" | "/dashboard/user"
 type RedirectRoutes = never
-type RewriteRoutes = never
+type RewriteRoutes = "/api/[[...path]]"
 type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRoutes | AppRouteHandlerRoutes
 
 
 interface ParamMap {
   "/": {}
+  "/api/[[...path]]": { "path"?: string[]; }
   "/api/admin/create-election-commission": {}
   "/api/admin/create-user": {}
   "/api/admin/pending-users": {}

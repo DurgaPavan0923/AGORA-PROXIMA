@@ -1,0 +1,3 @@
+module.exports=[16547,(a,b,c)=>{"use strict";b.exports=a.r(7129).vendored["react-ssr"].ReactJsxRuntime},63429,a=>{"use strict";var b=a.i(16547),c=a.i(9651),d=a.i(54949);function e({children:a,requiredRole:e}){let f=(0,d.useRouter)();return(0,c.useEffect)(()=>{(async()=>{try{let a=await fetch("/api/auth/verify",{headers:{Cookie:document.cookie}});if(!a.ok)return void f.push("/auth");let b=await a.json();if(e&&b.user.role!==e)return void f.push("/dashboard")}catch(a){console.error("[v0] Access verification failed:",a),f.push("/auth")}})()},[f,e]),(0,b.jsx)(b.Fragment,{children:a})}a.s(["DashboardGuard",()=>e])}];
+
+//# sourceMappingURL=client_6c348c28._.js.map

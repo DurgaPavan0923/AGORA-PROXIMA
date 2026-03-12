@@ -23,15 +23,20 @@ export default function UserDashboard() {
     try {
       setLoading(true)
       setError(null)
-      const response = await api.user.getProfile()
-      setUser(response.user)
+      // Use Next.js API route (same-origin, has cookie) instead of direct backend call
+      const res = await fetch('/api/auth/verify', { credentials: 'include' })
+      if (!res.ok) {
+        if (res.status === 401) {
+          router.push('/auth')
+          return
+        }
+        throw new Error('Failed to load profile')
+      }
+      const data = await res.json()
+      setUser(data.user)
     } catch (err) {
       console.error('Failed to fetch user profile:', err)
       setError(err instanceof Error ? err.message : 'Failed to load profile')
-      // If unauthorized, redirect to auth
-      if (err instanceof Error && err.message.includes('Unauthorized')) {
-        router.push('/auth')
-      }
     } finally {
       setLoading(false)
     }
@@ -47,41 +52,34 @@ export default function UserDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" />
-        <div className="absolute top-1/3 -right-48 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" />
-        <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000" />
-      </div>
-
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="relative z-10 bg-white/5 backdrop-blur-xl border-b border-white/10 sticky top-0">
+      <div className="relative z-10 bg-[#0C2340] border-b border-[#1B3A5C] sticky top-0">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-2 rounded-lg">
+              <div className="bg-[#FF9933] p-2 rounded-lg">
                 <Vote className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="text-xl font-bold text-white tracking-wide">
                 AGORA
               </span>
             </Link>
             <div className="hidden md:block h-6 w-px bg-white/20"></div>
             <div className="hidden md:block">
               <h1 className="text-lg font-bold text-white">Citizen Portal</h1>
-              <p className="text-xs text-gray-400">Blockchain-Powered Voting</p>
+              <p className="text-xs text-blue-200">Digital Voting Platform</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
             {user && (
-              <div className="hidden sm:flex items-center gap-3 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+              <div className="hidden sm:flex items-center gap-3 px-4 py-2 bg-white/10 rounded-lg border border-white/10">
+                <div className="w-8 h-8 bg-[#FF9933] rounded-full flex items-center justify-center">
                   <User className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white">{user.fullName}</p>
-                  <p className="text-xs text-gray-400">{user.phone}</p>
+                  <p className="text-xs text-blue-200">{user.phone}</p>
                 </div>
               </div>
             )}
@@ -106,8 +104,8 @@ export default function UserDashboard() {
               animate={{ opacity: 1 }}
               className="text-center space-y-4"
             >
-              <Loader2 className="w-12 h-12 text-purple-400 animate-spin mx-auto" />
-              <p className="text-gray-400">Loading your profile...</p>
+              <Loader2 className="w-12 h-12 text-[#0C2340] animate-spin mx-auto" />
+              <p className="text-gray-500">Loading your profile...</p>
             </motion.div>
           </div>
         ) : error ? (
@@ -130,23 +128,23 @@ export default function UserDashboard() {
             transition={{ duration: 0.5 }}
           >
             <Tabs defaultValue="elections" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 bg-white/5 backdrop-blur-xl border border-white/10 p-1">
+              <TabsList className="grid w-full grid-cols-3 bg-white border border-gray-200 p-1 shadow-sm">
                 <TabsTrigger 
                   value="elections" 
-                  className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-blue-600 data-[state=active]:text-white text-gray-400"
+                  className="flex items-center gap-2 data-[state=active]:bg-[#0C2340] data-[state=active]:text-white text-gray-600"
                 >
                   <BarChart3 className="w-4 h-4" />
                   <span className="hidden sm:inline">Elections</span>
                 </TabsTrigger>
                 <TabsTrigger 
                   value="history" 
-                  className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-blue-600 data-[state=active]:text-white text-gray-400"
+                  className="flex items-center gap-2 data-[state=active]:bg-[#0C2340] data-[state=active]:text-white text-gray-600"
                 >
                   <span>History</span>
                 </TabsTrigger>
                 <TabsTrigger 
                   value="profile" 
-                  className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-blue-600 data-[state=active]:text-white text-gray-400"
+                  className="flex items-center gap-2 data-[state=active]:bg-[#0C2340] data-[state=active]:text-white text-gray-600"
                 >
                   <Settings className="w-4 h-4" />
                   <span className="hidden sm:inline">Profile</span>
@@ -169,23 +167,6 @@ export default function UserDashboard() {
         )}
       </div>
 
-      <style jsx>{`
-        @keyframes blob {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          25% { transform: translate(20px, -50px) scale(1.1); }
-          50% { transform: translate(-20px, 20px) scale(0.9); }
-          75% { transform: translate(50px, 10px) scale(1.05); }
-        }
-        .animate-blob {
-          animation: blob 20s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-      `}</style>
     </div>
   )
 }

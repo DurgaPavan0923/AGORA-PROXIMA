@@ -5,6 +5,7 @@ export interface IParty {
   name: string;
   symbol: string;
   manifesto?: string;
+  boucherUrl?: string;
 }
 
 export interface IElection extends Document {
@@ -29,6 +30,7 @@ const PartySchema = new Schema<IParty>({
   name: { type: String, required: true },
   symbol: { type: String, required: true },
   manifesto: { type: String },
+  boucherUrl: { type: String },
 });
 
 const ElectionSchema = new Schema<IElection>(

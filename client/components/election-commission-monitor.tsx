@@ -47,6 +47,11 @@ interface Election {
   voteCounts?: Record<string, number>
 }
 
+function getAuthHeaders(): Record<string, string> {
+  const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+  return token ? { 'Authorization': `Bearer ${token}` } : {}
+}
+
 export function ElectionCommissionMonitor() {
   const [editingTime, setEditingTime] = useState<string | null>(null)
   const [newStartDate, setNewStartDate] = useState("")
@@ -73,10 +78,9 @@ export function ElectionCommissionMonitor() {
       for (const election of elections) {
         if (election.status === "active" && new Date(election.endDate) < now) {
           try {
-            const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
-            await fetch(`${API_URL}/elections/${election._id}`, {
+            await fetch(`/api/elections/${election._id}`, {
               method: "PUT",
-              headers: { "Content-Type": "application/json" },
+              headers: { "Content-Type": "application/json", ...getAuthHeaders() },
               credentials: 'include',
               body: JSON.stringify({ status: "completed" }),
             })
@@ -107,9 +111,9 @@ export function ElectionCommissionMonitor() {
 
     try {
       console.log("Deleting election with ID:", electionId)
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
-      const response = await fetch(`${API_URL}/elections/${electionId}`, {
+      const response = await fetch(`/api/elections/${electionId}`, {
         method: "DELETE",
+        headers: { ...getAuthHeaders() },
         credentials: 'include',
       })
 
@@ -139,10 +143,9 @@ export function ElectionCommissionMonitor() {
 
     try {
       console.log("Updating election status:", electionId, "to", newStatus)
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
-      const response = await fetch(`${API_URL}/elections/${electionId}`, {
+      const response = await fetch(`/api/elections/${electionId}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
         credentials: 'include',
         body: JSON.stringify({ status: newStatus }),
       })
@@ -210,10 +213,9 @@ export function ElectionCommissionMonitor() {
       console.log("  - New start:", start.toISOString())
       console.log("  - New end:", end.toISOString())
 
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
-      const response = await fetch(`${API_URL}/elections/${editingTime}`, {
+      const response = await fetch(`/api/elections/${editingTime}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
         credentials: 'include',
         body: JSON.stringify({ 
           startDate: start.toISOString(),

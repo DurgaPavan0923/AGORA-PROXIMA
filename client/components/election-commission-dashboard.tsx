@@ -384,7 +384,7 @@ export default function ElectionCommissionDashboard() {
               {/* Add Party Form */}
               <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 space-y-3">
                 <p className="text-sm font-medium text-gray-700">Add Political Party</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <Input
                     value={partyName}
                     onChange={(e) => setPartyName(e.target.value)}
@@ -396,10 +396,14 @@ export default function ElectionCommissionDashboard() {
                     placeholder="Symbol (emoji) *"
                     maxLength={2}
                   />
-                  <Input
+                </div>
+                <div className="space-y-1">
+                  <Label className="text-sm text-gray-600">Party Manifesto</Label>
+                  <Textarea
                     value={partyManifesto}
                     onChange={(e) => setPartyManifesto(e.target.value)}
-                    placeholder="Brief Manifesto"
+                    placeholder="Describe the party's key promises, policies, and goals..."
+                    rows={4}
                   />
                 </div>
                 <Button
@@ -554,7 +558,7 @@ export default function ElectionCommissionDashboard() {
               {/* Add Party Form */}
               <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 space-y-3">
                 <p className="text-sm font-medium text-gray-700">Add Political Party</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <Input
                     value={partyName}
                     onChange={(e) => setPartyName(e.target.value)}
@@ -566,10 +570,14 @@ export default function ElectionCommissionDashboard() {
                     placeholder="Symbol (emoji) *"
                     maxLength={2}
                   />
-                  <Input
+                </div>
+                <div className="space-y-1">
+                  <Label className="text-sm text-gray-600">Party Manifesto</Label>
+                  <Textarea
                     value={partyManifesto}
                     onChange={(e) => setPartyManifesto(e.target.value)}
-                    placeholder="Brief Manifesto"
+                    placeholder="Describe the party's key promises, policies, and goals..."
+                    rows={4}
                   />
                 </div>
                 <Button

@@ -350,9 +350,8 @@ export function AdminPendingUsers() {
                               }
                               console.log('Fetching Aadhaar document:', filename)
                               
-                              // Get token from cookies
-                              const token = document.cookie.split('; ').find(row => row.startsWith('token='))?.split('=')[1]
-                              console.log('Token exists:', !!token)
+                              // Get token from localStorage
+                              const token = localStorage.getItem('token')
                               
                               // Get the file from backend
                               const response = await fetch(`http://localhost:5000/uploads/${filename}`, {
@@ -408,9 +407,8 @@ export function AdminPendingUsers() {
                               }
                               console.log('Fetching Voter ID document:', filename)
                               
-                              // Get token from cookies
-                              const token = document.cookie.split('; ').find(row => row.startsWith('token='))?.split('=')[1]
-                              console.log('Token exists:', !!token)
+                              // Get token from localStorage
+                              const token = localStorage.getItem('token')
                               
                               // Get the file from backend
                               const response = await fetch(`http://localhost:5000/uploads/${filename}`, {

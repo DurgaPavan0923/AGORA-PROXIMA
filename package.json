@@ -11,6 +11,8 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "hardhat": "^3.0.17"
+    "hardhat": "^3.0.17",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }

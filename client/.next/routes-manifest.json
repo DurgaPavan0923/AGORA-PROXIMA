@@ -1,0 +1,257 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/api/documents/[filename]",
+      "regex": "^/api/documents/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPfilename": "nxtPfilename"
+      },
+      "namedRegex": "^/api/documents/(?<nxtPfilename>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/elections/[id]",
+      "regex": "^/api/elections/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/elections/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/elections/[id]/vote",
+      "regex": "^/api/elections/([^/]+?)/vote(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/elections/(?<nxtPid>[^/]+?)/vote(?:/)?$"
+    },
+    {
+      "page": "/api/proposals/[id]/vote",
+      "regex": "^/api/proposals/([^/]+?)/vote(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/proposals/(?<nxtPid>[^/]+?)/vote(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/api/admin/create-election-commission",
+      "regex": "^/api/admin/create\\-election\\-commission(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/create\\-election\\-commission(?:/)?$"
+    },
+    {
+      "page": "/api/admin/create-user",
+      "regex": "^/api/admin/create\\-user(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/create\\-user(?:/)?$"
+    },
+    {
+      "page": "/api/admin/pending-users",
+      "regex": "^/api/admin/pending\\-users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/pending\\-users(?:/)?$"
+    },
+    {
+      "page": "/api/admin/reject-user",
+      "regex": "^/api/admin/reject\\-user(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/reject\\-user(?:/)?$"
+    },
+    {
+      "page": "/api/admin/verify-user",
+      "regex": "^/api/admin/verify\\-user(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/verify\\-user(?:/)?$"
+    },
+    {
+      "page": "/api/auth/id-proof",
+      "regex": "^/api/auth/id\\-proof(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/id\\-proof(?:/)?$"
+    },
+    {
+      "page": "/api/auth/login",
+      "regex": "^/api/auth/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/login(?:/)?$"
+    },
+    {
+      "page": "/api/auth/register",
+      "regex": "^/api/auth/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/register(?:/)?$"
+    },
+    {
+      "page": "/api/auth/request-otp",
+      "regex": "^/api/auth/request\\-otp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/request\\-otp(?:/)?$"
+    },
+    {
+      "page": "/api/auth/verify",
+      "regex": "^/api/auth/verify(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/verify(?:/)?$"
+    },
+    {
+      "page": "/api/auth/verify-otp-mpin",
+      "regex": "^/api/auth/verify\\-otp\\-mpin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/verify\\-otp\\-mpin(?:/)?$"
+    },
+    {
+      "page": "/api/elections",
+      "regex": "^/api/elections(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/elections(?:/)?$"
+    },
+    {
+      "page": "/api/proposals",
+      "regex": "^/api/proposals(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/proposals(?:/)?$"
+    },
+    {
+      "page": "/api/statistics/admin",
+      "regex": "^/api/statistics/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/statistics/admin(?:/)?$"
+    },
+    {
+      "page": "/api/statistics/global",
+      "regex": "^/api/statistics/global(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/statistics/global(?:/)?$"
+    },
+    {
+      "page": "/api/user/change-mpin",
+      "regex": "^/api/user/change\\-mpin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/user/change\\-mpin(?:/)?$"
+    },
+    {
+      "page": "/api/user/profile",
+      "regex": "^/api/user/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/user/profile(?:/)?$"
+    },
+    {
+      "page": "/api/user/stats",
+      "regex": "^/api/user/stats(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/user/stats(?:/)?$"
+    },
+    {
+      "page": "/api/user/update-profile",
+      "regex": "^/api/user/update\\-profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/user/update\\-profile(?:/)?$"
+    },
+    {
+      "page": "/api/user/voting-history",
+      "regex": "^/api/user/voting\\-history(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/user/voting\\-history(?:/)?$"
+    },
+    {
+      "page": "/auth",
+      "regex": "^/auth(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/auth(?:/)?$"
+    },
+    {
+      "page": "/dashboard",
+      "regex": "^/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard(?:/)?$"
+    },
+    {
+      "page": "/dashboard/admin",
+      "regex": "^/dashboard/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/admin(?:/)?$"
+    },
+    {
+      "page": "/dashboard/election-commission",
+      "regex": "^/dashboard/election\\-commission(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/election\\-commission(?:/)?$"
+    },
+    {
+      "page": "/dashboard/user",
+      "regex": "^/dashboard/user(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/user(?:/)?$"
+    },
+    {
+      "page": "/dev-access",
+      "regex": "^/dev\\-access(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dev\\-access(?:/)?$"
+    },
+    {
+      "page": "/news",
+      "regex": "^/news(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/news(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

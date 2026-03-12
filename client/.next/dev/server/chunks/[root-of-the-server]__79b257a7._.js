@@ -87,11 +87,12 @@ async function POST(request) {
         const nextResponse = __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             success: true,
             message: "Login successful",
+            token: data.token,
             user: data.user,
             role: data.user?.role
         });
         if (data.token) {
-            nextResponse.cookies.set("token", data.token, {
+            nextResponse.cookies.set("auth-token", data.token, {
                 httpOnly: true,
                 secure: ("TURBOPACK compile-time value", "development") === "production",
                 sameSite: "lax",

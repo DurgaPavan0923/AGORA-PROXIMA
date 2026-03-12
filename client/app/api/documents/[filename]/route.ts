@@ -4,16 +4,15 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { filename: string } }
+  { params }: { params: Promise<{ filename: string }> }
 ) {
   try {
-    const token = request.cookies.get("token")?.value
+    const { filename } = await params
+    const token = request.cookies.get("auth-token")?.value || request.cookies.get("token")?.value
 
     if (!token) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
-
-    const filename = params.filename
 
     // Fetch the file from backend
     const response = await fetch(`${BACKEND_URL}/uploads/${filename}`, {

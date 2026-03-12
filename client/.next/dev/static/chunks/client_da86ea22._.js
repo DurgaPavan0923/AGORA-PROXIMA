@@ -2035,12 +2035,12 @@ function AdminElectionEditor() {
         setSuccess(false);
     };
     const handleSave = async ()=>{
-        if (!editingElection || !editingElection.id) return;
+        if (!editingElection || !editingElection._id) return;
         setLoading(true);
         setError("");
         setSuccess(false);
         try {
-            const response = await fetch(`/api/elections/${editingElection.id}`, {
+            const response = await fetch(`/api/elections/${editingElection._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -2069,27 +2069,27 @@ function AdminElectionEditor() {
                                 className: "w-5 h-5"
                             }, void 0, false, {
                                 fileName: "[project]/client/components/admin-election-editor.tsx",
-                                lineNumber: 74,
+                                lineNumber: 75,
                                 columnNumber: 11
                             }, this),
                             "Edit Elections"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/components/admin-election-editor.tsx",
-                        lineNumber: 73,
+                        lineNumber: 74,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
                         children: "Modify election details (metadata only, not blockchain data)"
                     }, void 0, false, {
                         fileName: "[project]/client/components/admin-election-editor.tsx",
-                        lineNumber: 77,
+                        lineNumber: 78,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/components/admin-election-editor.tsx",
-                lineNumber: 72,
+                lineNumber: 73,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -2104,39 +2104,39 @@ function AdminElectionEditor() {
                                             children: "Election Title"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                            lineNumber: 84,
+                                            lineNumber: 85,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                             children: "Status"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                            lineNumber: 85,
+                                            lineNumber: 86,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                             children: "Parties"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                            lineNumber: 86,
+                                            lineNumber: 87,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                             children: "Action"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                            lineNumber: 87,
+                                            lineNumber: 88,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                    lineNumber: 83,
+                                    lineNumber: 84,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/client/components/admin-election-editor.tsx",
-                                lineNumber: 82,
+                                lineNumber: 83,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -2147,7 +2147,7 @@ function AdminElectionEditor() {
                                                 children: election.title
                                             }, void 0, false, {
                                                 fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                lineNumber: 93,
+                                                lineNumber: 94,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2156,12 +2156,12 @@ function AdminElectionEditor() {
                                                     children: election.status
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                    lineNumber: 95,
+                                                    lineNumber: 96,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                lineNumber: 94,
+                                                lineNumber: 95,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2171,12 +2171,12 @@ function AdminElectionEditor() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                lineNumber: 97,
+                                                lineNumber: 98,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
-                                                    open: editingElection?.id === election.id,
+                                                    open: editingElection?._id === election._id,
                                                     onOpenChange: (open)=>!open && setEditingElection(null),
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTrigger"], {
@@ -2188,12 +2188,12 @@ function AdminElectionEditor() {
                                                                 children: "Edit"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                lineNumber: 104,
+                                                                lineNumber: 105,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                            lineNumber: 103,
+                                                            lineNumber: 104,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
@@ -2203,12 +2203,12 @@ function AdminElectionEditor() {
                                                                         children: "Edit Election"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                        lineNumber: 110,
+                                                                        lineNumber: 111,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                    lineNumber: 109,
+                                                                    lineNumber: 110,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2221,7 +2221,7 @@ function AdminElectionEditor() {
                                                                                     children: "Title"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                                    lineNumber: 114,
+                                                                                    lineNumber: 115,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2233,13 +2233,13 @@ function AdminElectionEditor() {
                                                                                     disabled: loading
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                                    lineNumber: 115,
+                                                                                    lineNumber: 116,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                            lineNumber: 113,
+                                                                            lineNumber: 114,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2249,7 +2249,7 @@ function AdminElectionEditor() {
                                                                                     children: "Description"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                                    lineNumber: 123,
+                                                                                    lineNumber: 124,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -2262,13 +2262,13 @@ function AdminElectionEditor() {
                                                                                     rows: 4
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                                    lineNumber: 124,
+                                                                                    lineNumber: 125,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                            lineNumber: 122,
+                                                                            lineNumber: 123,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Alert"], {
@@ -2278,7 +2278,7 @@ function AdminElectionEditor() {
                                                                                     className: "h-4 w-4 text-blue-600"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                                    lineNumber: 133,
+                                                                                    lineNumber: 134,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDescription"], {
@@ -2286,13 +2286,13 @@ function AdminElectionEditor() {
                                                                                     children: "Blockchain data (votes, parties) cannot be edited for security and transparency."
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                                    lineNumber: 134,
+                                                                                    lineNumber: 135,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                            lineNumber: 132,
+                                                                            lineNumber: 133,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Alert"], {
@@ -2302,7 +2302,7 @@ function AdminElectionEditor() {
                                                                                     className: "h-4 w-4 text-red-600"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                                    lineNumber: 141,
+                                                                                    lineNumber: 142,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDescription"], {
@@ -2310,13 +2310,13 @@ function AdminElectionEditor() {
                                                                                     children: error
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                                    lineNumber: 142,
+                                                                                    lineNumber: 143,
                                                                                     columnNumber: 31
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                            lineNumber: 140,
+                                                                            lineNumber: 141,
                                                                             columnNumber: 29
                                                                         }, this),
                                                                         success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Alert"], {
@@ -2326,7 +2326,7 @@ function AdminElectionEditor() {
                                                                                     className: "h-4 w-4 text-green-600"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                                    lineNumber: 148,
+                                                                                    lineNumber: 149,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDescription"], {
@@ -2334,13 +2334,13 @@ function AdminElectionEditor() {
                                                                                     children: "Election updated!"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                                    lineNumber: 149,
+                                                                                    lineNumber: 150,
                                                                                     columnNumber: 31
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                            lineNumber: 147,
+                                                                            lineNumber: 148,
                                                                             columnNumber: 29
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2350,63 +2350,63 @@ function AdminElectionEditor() {
                                                                             children: loading ? "Saving..." : "Save Changes"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                            lineNumber: 153,
+                                                                            lineNumber: 154,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                                    lineNumber: 112,
+                                                                    lineNumber: 113,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                            lineNumber: 108,
+                                                            lineNumber: 109,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                    lineNumber: 99,
+                                                    lineNumber: 100,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/client/components/admin-election-editor.tsx",
-                                                lineNumber: 98,
+                                                lineNumber: 99,
                                                 columnNumber: 19
                                             }, this)
                                         ]
-                                    }, election.id, true, {
+                                    }, election._id, true, {
                                         fileName: "[project]/client/components/admin-election-editor.tsx",
-                                        lineNumber: 92,
+                                        lineNumber: 93,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/client/components/admin-election-editor.tsx",
-                                lineNumber: 90,
+                                lineNumber: 91,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/components/admin-election-editor.tsx",
-                        lineNumber: 81,
+                        lineNumber: 82,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/client/components/admin-election-editor.tsx",
-                    lineNumber: 80,
+                    lineNumber: 81,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/client/components/admin-election-editor.tsx",
-                lineNumber: 79,
+                lineNumber: 80,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/client/components/admin-election-editor.tsx",
-        lineNumber: 71,
+        lineNumber: 72,
         columnNumber: 5
     }, this);
 }
@@ -3219,9 +3219,8 @@ function AdminPendingUsers() {
                                                                                 filename = filename.split('/').pop();
                                                                             }
                                                                             console.log('Fetching Aadhaar document:', filename);
-                                                                            // Get token from cookies
-                                                                            const token = document.cookie.split('; ').find((row)=>row.startsWith('token='))?.split('=')[1];
-                                                                            console.log('Token exists:', !!token);
+                                                                            // Get token from localStorage
+                                                                            const token = localStorage.getItem('token');
                                                                             // Get the file from backend
                                                                             const response = await fetch(`http://localhost:5000/uploads/${filename}`, {
                                                                                 credentials: 'include',
@@ -3250,7 +3249,7 @@ function AdminPendingUsers() {
                                                                             className: "w-4 h-4 mr-1"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                                            lineNumber: 383,
+                                                                            lineNumber: 382,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         "View"
@@ -3276,7 +3275,7 @@ function AdminPendingUsers() {
                                                                             className: "w-5 h-5 text-green-600"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                                            lineNumber: 391,
+                                                                            lineNumber: 390,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3286,7 +3285,7 @@ function AdminPendingUsers() {
                                                                                     children: "Voter ID Card"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                                                    lineNumber: 393,
+                                                                                    lineNumber: 392,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3294,19 +3293,19 @@ function AdminPendingUsers() {
                                                                                     children: "PDF Document"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                                                    lineNumber: 394,
+                                                                                    lineNumber: 393,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                                            lineNumber: 392,
+                                                                            lineNumber: 391,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                                    lineNumber: 390,
+                                                                    lineNumber: 389,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3322,9 +3321,8 @@ function AdminPendingUsers() {
                                                                                 filename = filename.split('/').pop();
                                                                             }
                                                                             console.log('Fetching Voter ID document:', filename);
-                                                                            // Get token from cookies
-                                                                            const token = document.cookie.split('; ').find((row)=>row.startsWith('token='))?.split('=')[1];
-                                                                            console.log('Token exists:', !!token);
+                                                                            // Get token from localStorage
+                                                                            const token = localStorage.getItem('token');
                                                                             // Get the file from backend
                                                                             const response = await fetch(`http://localhost:5000/uploads/${filename}`, {
                                                                                 credentials: 'include',
@@ -3353,20 +3351,20 @@ function AdminPendingUsers() {
                                                                             className: "w-4 h-4 mr-1"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                                            lineNumber: 441,
+                                                                            lineNumber: 439,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         "View"
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                                    lineNumber: 397,
+                                                                    lineNumber: 396,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                            lineNumber: 389,
+                                                            lineNumber: 388,
                                                             columnNumber: 23
                                                         }, this),
                                                         !selectedUser.aadhaarCardPath && !selectedUser.voterIdCardPath && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3374,7 +3372,7 @@ function AdminPendingUsers() {
                                                             children: "No documents uploaded"
                                                         }, void 0, false, {
                                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                            lineNumber: 447,
+                                                            lineNumber: 445,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
@@ -3417,7 +3415,7 @@ function AdminPendingUsers() {
                                             children: "Approve User Registration"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 460,
+                                            lineNumber: 458,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
@@ -3427,13 +3425,13 @@ function AdminPendingUsers() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 461,
+                                            lineNumber: 459,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                    lineNumber: 459,
+                                    lineNumber: 457,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3446,7 +3444,7 @@ function AdminPendingUsers() {
                                                     className: "h-4 w-4 text-red-600"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                    lineNumber: 468,
+                                                    lineNumber: 466,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDescription"], {
@@ -3454,13 +3452,13 @@ function AdminPendingUsers() {
                                                     children: error
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                    lineNumber: 469,
+                                                    lineNumber: 467,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 467,
+                                            lineNumber: 465,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3470,7 +3468,7 @@ function AdminPendingUsers() {
                                                     children: "Initial MPIN (4 digits)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                    lineNumber: 473,
+                                                    lineNumber: 471,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3487,7 +3485,7 @@ function AdminPendingUsers() {
                                                     className: "font-mono text-center text-lg tracking-widest"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                    lineNumber: 474,
+                                                    lineNumber: 472,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3495,19 +3493,19 @@ function AdminPendingUsers() {
                                                     children: "This MPIN will be sent to the user via email along with their Unique ID"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                                    lineNumber: 487,
+                                                    lineNumber: 485,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 472,
+                                            lineNumber: 470,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                    lineNumber: 465,
+                                    lineNumber: 463,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -3519,7 +3517,7 @@ function AdminPendingUsers() {
                                             children: "Cancel"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 493,
+                                            lineNumber: 491,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3529,24 +3527,24 @@ function AdminPendingUsers() {
                                             children: actionLoading ? "Approving..." : "Approve & Issue Unique ID"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 496,
+                                            lineNumber: 494,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                    lineNumber: 492,
+                                    lineNumber: 490,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                            lineNumber: 458,
+                            lineNumber: 456,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/client/components/admin-pending-users.tsx",
-                        lineNumber: 457,
+                        lineNumber: 455,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -3560,7 +3558,7 @@ function AdminPendingUsers() {
                                             children: "Reject User Registration"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 511,
+                                            lineNumber: 509,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
@@ -3571,13 +3569,13 @@ function AdminPendingUsers() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 512,
+                                            lineNumber: 510,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                    lineNumber: 510,
+                                    lineNumber: 508,
                                     columnNumber: 13
                                 }, this),
                                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Alert"], {
@@ -3587,7 +3585,7 @@ function AdminPendingUsers() {
                                             className: "h-4 w-4 text-red-600"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 518,
+                                            lineNumber: 516,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$alert$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDescription"], {
@@ -3595,13 +3593,13 @@ function AdminPendingUsers() {
                                             children: error
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 519,
+                                            lineNumber: 517,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                    lineNumber: 517,
+                                    lineNumber: 515,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -3613,7 +3611,7 @@ function AdminPendingUsers() {
                                             children: "Cancel"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 523,
+                                            lineNumber: 521,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3623,24 +3621,24 @@ function AdminPendingUsers() {
                                             children: actionLoading ? "Rejecting..." : "Reject Registration"
                                         }, void 0, false, {
                                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                                            lineNumber: 526,
+                                            lineNumber: 524,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/components/admin-pending-users.tsx",
-                                    lineNumber: 522,
+                                    lineNumber: 520,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/client/components/admin-pending-users.tsx",
-                            lineNumber: 509,
+                            lineNumber: 507,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/client/components/admin-pending-users.tsx",
-                        lineNumber: 508,
+                        lineNumber: 506,
                         columnNumber: 9
                     }, this)
                 ]
@@ -3755,7 +3753,7 @@ function AdminDashboard() {
                 className: "text-center space-y-4",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "w-12 h-12 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto"
+                        className: "w-12 h-12 border-4 border-[#0C2340] border-t-transparent rounded-full animate-spin mx-auto"
                     }, void 0, false, {
                         fileName: "[project]/client/app/dashboard/admin/page.tsx",
                         lineNumber: 71,
@@ -3795,9 +3793,9 @@ function AdminDashboard() {
                                 className: "flex items-center gap-3",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "p-2 bg-purple-100 rounded-lg",
+                                        className: "p-2 bg-[#0C2340] rounded-lg",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Shield$3e$__["Shield"], {
-                                            className: "w-6 h-6 text-purple-600"
+                                            className: "w-6 h-6 text-[#FF9933]"
                                         }, void 0, false, {
                                             fileName: "[project]/client/app/dashboard/admin/page.tsx",
                                             lineNumber: 86,

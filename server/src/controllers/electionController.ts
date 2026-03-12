@@ -6,7 +6,7 @@ import { votingService } from '../blockchain/votingService';
 import { AuthRequest } from '../middleware/auth';
 
 // Get all elections
-export const getAllElections = async (req: Request, res: Response): Promise<void> => {
+export const getAllElections = async (_req: Request, res: Response): Promise<void> => {
   try {
     const elections = await Election.find().sort({ createdAt: -1 });
 
@@ -79,6 +79,18 @@ export const createElection = async (req: AuthRequest, res: Response): Promise<v
       return;
     }
 
+    // Validate dates
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+      res.status(400).json({ error: 'Invalid date format' });
+      return;
+    }
+    if (end <= start) {
+      res.status(400).json({ error: 'End date must be after start date' });
+      return;
+    }
+
     // Auto-generate party IDs if not provided
     const partiesWithIds = (parties || []).map((party: any) => ({
       ...party,
@@ -110,9 +122,10 @@ export const createElection = async (req: AuthRequest, res: Response): Promise<v
       );
 
       if (blockchainResult.success) {
+        election.blockchainElectionId = blockchainResult.electionId; // numeric ID from smart contract
         election.blockchainTxHash = blockchainResult.txHash;
         await election.save();
-        console.log(`✅ Election created on blockchain: ${blockchainResult.electionId}`);
+        console.log(`✅ Election created on blockchain: ID=${blockchainResult.electionId}`);
       } else {
         console.warn(`⚠️ Failed to create election on blockchain: ${blockchainResult.error}`);
       }
@@ -138,34 +151,30 @@ export const updateElection = async (req: AuthRequest, res: Response): Promise<v
     const { id } = req.params;
     const updates = req.body;
 
-    console.log('📝 Update Election Request:');
-    console.log('  - Election ID:', id);
-    console.log('  - Updates:', JSON.stringify(updates));
-    console.log('  - User:', req.user?.uniqueId, req.user?.role);
+    // Whitelist allowed fields to prevent mass assignment
+    const allowedFields = ['title', 'description', 'startDate', 'endDate', 'parties', 'type', 'status'];
+    const sanitizedUpdates: Record<string, any> = {};
+    for (const key of allowedFields) {
+      if (updates[key] !== undefined) {
+        sanitizedUpdates[key] = updates[key];
+      }
+    }
 
-    const election = await Election.findByIdAndUpdate(id, updates, { new: true });
+    const election = await Election.findByIdAndUpdate(id, sanitizedUpdates, { new: true });
 
     if (!election) {
-      console.log('❌ Election not found:', id);
       res.status(404).json({ error: 'Election not found' });
       return;
     }
 
-    console.log('✅ Election updated successfully:', election._id);
     res.json({
       success: true,
       message: 'Election updated successfully',
       election,
     });
   } catch (error: any) {
-    console.error('❌ Update election error:');
-    console.error('  - Error type:', error.name);
-    console.error('  - Error message:', error.message);
-    console.error('  - Stack:', error.stack);
-    res.status(500).json({ 
-      error: 'Failed to update election',
-      details: error.message 
-    });
+    console.error('Update election error:', error.message);
+    res.status(500).json({ error: 'Failed to update election' });
   }
 };
 
@@ -189,13 +198,6 @@ export const voteInElection = async (req: AuthRequest, res: Response): Promise<v
     // Check if election is active
     if (election.status !== 'active') {
       res.status(400).json({ error: 'Election is not active' });
-      return;
-    }
-
-    // Check if election is within date range
-    const now = new Date();
-    if (now < election.startDate || now > election.endDate) {
-      res.status(400).json({ error: 'Election is not currently open for voting' });
       return;
     }
 
@@ -229,16 +231,20 @@ export const voteInElection = async (req: AuthRequest, res: Response): Promise<v
 
     // Record vote on blockchain
     try {
-      // Find party index
       const partyIndex = election.parties.findIndex((p: any) => p.id === partyId);
+
       if (partyIndex === -1) {
         console.warn('Party not found, skipping blockchain vote');
+      } else if (!election.blockchainElectionId) {
+        // Election was not registered on blockchain (e.g. blockchain was unavailable)
+        console.warn('Election has no blockchain ID, skipping blockchain vote');
       } else {
+        // Use the numeric blockchain election ID, not the MongoDB ObjectId
         const blockchainResult = await votingService.castVote(
-          election._id.toString(), // Using MongoDB ID as election ID
+          election.blockchainElectionId,
           partyIndex,
           user.walletAddress,
-          user.encryptedPrivateKey // In production, decrypt this first
+          user.encryptedPrivateKey
         );
 
         if (blockchainResult.success) {

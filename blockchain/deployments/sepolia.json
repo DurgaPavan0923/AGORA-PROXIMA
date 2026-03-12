@@ -1,0 +1,10 @@
+{
+  "network": "sepolia",
+  "chainId": "11155111",
+  "deployer": "0x1CB6B09d872e1934Ce09592A226EB503Eb0cCd28",
+  "contracts": {
+    "SBT": "0xf1c48D3Ec9E9FB4707fFF859fa72497B640bC236",
+    "VotingContract": "0xA03fdE4ac14E75f126D5DC2993E990B13C356998"
+  },
+  "deployedAt": "2026-03-06T05:29:37.861Z"
+}

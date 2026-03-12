@@ -2,8 +2,9 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { mockDb } from "@/lib/mock-db"
 
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const { id } = await params
     const token = request.headers.get("authorization")?.replace("Bearer ", "")
 
     if (!token) {
@@ -19,7 +20,7 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
     const vote = {
       id: `vote-${Date.now()}`,
       userId,
-      electionId: params.id,
+      electionId: id,
       partyId: body.partyId,
       timestamp: new Date(),
       blockchainHash,

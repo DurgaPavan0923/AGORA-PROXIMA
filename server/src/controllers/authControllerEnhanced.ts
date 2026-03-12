@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { User } from '../models/User';
 import { PendingUser } from '../models/PendingUser';
 import { OTP } from '../models/OTP';
-import { generateOTP, hashMPIN, compareMPIN, generateUniqueId } from '../utils/crypto';
+import { generateOTP, compareMPIN, generateUniqueId } from '../utils/crypto';
 import { generateToken } from '../utils/jwt';
 import { AuthRequest } from '../middleware/auth';
 import { blockchainIntegration } from '../blockchain/blockchainIntegration';

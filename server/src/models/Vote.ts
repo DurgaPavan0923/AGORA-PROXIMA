@@ -4,6 +4,7 @@ export interface IVote extends Document {
   electionId: string;
   userId: string;
   partyId: string;
+  blockchainTxHash?: string;
   votedAt: Date;
   createdAt: Date;
 }
@@ -23,6 +24,9 @@ const VoteSchema = new Schema<IVote>(
     partyId: {
       type: String,
       required: true,
+    },
+    blockchainTxHash: {
+      type: String,
     },
     votedAt: {
       type: Date,
